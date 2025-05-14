@@ -1,0 +1,134 @@
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const suitings = [
+  {
+    name: "Designer Suitings",
+    pages: "1-18",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Trovine",
+    pages: "19-24",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Mellinium Suiting",
+    pages: "25-28",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Cotton Club Suiting",
+    pages: "29-32",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Worsted Suiting",
+    pages: "33-34",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Saraj",
+    pages: "35-36",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Sapphire",
+    pages: "37-38",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Trouser",
+    pages: "39-41",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+  {
+    name: "Wrinkle Free",
+    pages: "42",
+    image:
+      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
+  },
+];
+
+const ProductsList = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  return (
+    <div className="bg-gray-50 min-h-screen pb-20">
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="w-full h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center text-center px-4"
+        style={{
+          backgroundImage:
+            "url('https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp')",
+        }}
+      >
+        <div className="bg-black/60 p-8 rounded-lg max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Premium Suitings
+          </h1>
+          <p className="text-gray-200 text-lg">
+            Discover luxury fabrics crafted for modern elegance — suited for
+            every style.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Product Grid */}
+      <div className="px-4 md:px-16 mt-16">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-semibold text-gray-800 mb-10 text-center"
+        >
+          Our Suiting Collection
+        </motion.h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          {suitings.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              onClick={() => navigate(`/library/${id}/subproducts`)}
+              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer group"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-60 object-cover transform group-hover:scale-105 transition duration-300"
+                />
+              </div>
+              <div className="p-5 text-center">
+                <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                  {item.name}
+                </h3>
+                <p className="text-sm text-gray-500">Pages: {item.pages}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductsList;

@@ -1,0 +1,455 @@
+/* BusinessInsight.css - Modern Redesign */
+
+:root {
+  --primary-color: #3f51b5;
+  --primary-dark: #1a237e;
+  --primary-light: #7986cb;
+  --accent-color: #ff4081;
+  --text-light: #ffffff;
+  --text-dark: #212121;
+  --gray-light: #f5f5f5;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.business-insight-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* Common styles with modern typography */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.section-description {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  max-width: 90%;
+  font-weight: 300;
+  letter-spacing: 0.015em;
+}
+
+/* Customize With Us Section - Modern Card-like Design */
+.customize-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  padding: 6rem 5%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.customize-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.customize-image {
+  width: 46%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.customize-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.customize-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: var(--transition-smooth);
+}
+
+.customize-image:hover img {
+  transform: scale(1.05);
+}
+
+.customize-content {
+  width: 50%;
+  padding-left: 4%;
+}
+
+/* Process steps - Modern card design */
+.process-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: calc(50% - 1rem);
+  padding: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  transition: var(--transition-smooth);
+  border-left: 3px solid transparent;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 3px solid var(--accent-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.step:hover .step-icon {
+  transform: rotate(5deg) scale(1.05);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 64, 129, 0.3),
+    rgba(255, 64, 129, 0.1)
+  );
+}
+
+.step-icon::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg) translateX(-100%);
+  transition: 0.6s;
+}
+
+.step:hover .step-icon::before {
+  transform: rotate(45deg) translateX(100%);
+}
+
+.step-icon img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) invert(1);
+  transition: var(--transition-smooth);
+}
+
+.step:hover .step-icon img {
+  transform: scale(1.1);
+}
+
+.step-content h3 {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.step:hover .step-content h3 {
+  color: var(--accent-color);
+}
+
+.step-content p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Business Insight Section - Modern Parallax Effect */
+.insight-section {
+  padding: 7rem 10%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Create a modern gradient overlay */
+.insight-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Stats container - Modern card design */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  width: calc(33.33% - 1.5rem);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-color),
+    transparent
+  );
+  transform: scaleX(0);
+  transition: var(--transition-smooth);
+}
+
+.stat-item:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item:hover::after {
+  transform: scaleX(1);
+}
+
+.stat-icon {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.8rem;
+  position: relative;
+  transition: var(--transition-smooth);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item:hover .stat-icon {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon img {
+  width: 45px;
+  height: 45px;
+  transition: var(--transition-smooth);
+}
+
+.stat-item:hover .stat-icon img {
+  transform: scale(1.1);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+  transition: var(--transition-smooth);
+  background: linear-gradient(to right, #ffffff, var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.stat-item:hover .stat-number {
+  text-shadow: 0 0 30px rgba(255, 64, 129, 0.3);
+}
+
+.stat-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+}
+
+.stat-item:hover .stat-label {
+  color: var(--text-light);
+}
+
+/* Media queries for responsiveness with modern mobile-first approach */
+@media (max-width: 1200px) {
+  .customize-section {
+    flex-direction: column;
+    padding: 5rem 5%;
+  }
+
+  .customize-image {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .customize-content {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .step {
+    width: 100%;
+  }
+
+  .stat-item {
+    width: calc(50% - 1rem);
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stat-item {
+    width: 100%;
+  }
+
+  .section-description {
+    max-width: 100%;
+  }
+
+  .step-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .step-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stat-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+/* Modern Animation for scroll effect */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal animation for stats */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-number {
+  animation: countUp 1s ease-out forwards;
+}
+
+/* Add a subtle pulse animation to icons on hover */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 64, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 64, 129, 0);
+  }
+}
+
+.stat-item:hover .stat-icon,
+.step:hover .step-icon {
+  animation: pulse 1.5s infinite;
+}

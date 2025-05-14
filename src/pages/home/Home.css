@@ -1,0 +1,40 @@
+/* Home.css */
+
+.home-container {
+  width: 100%;
+}
+
+/* Background section with fixed background image */
+.background-section {
+  width: 100%;
+  height: max-content;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed; /* This makes the background fixed when scrolling */
+  position: relative;
+}
+
+/* Make sure all content inside is visible above the fixed background */
+.background-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fix for mobile devices that don't support background-attachment: fixed properly */
+@media (max-width: 768px) {
+  .background-section {
+    background-attachment: scroll; /* Fallback for mobile */
+  }
+}
