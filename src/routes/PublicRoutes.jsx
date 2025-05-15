@@ -3,7 +3,7 @@ import Public from "../layout/Public";
 import FabricList from "../pages/fabriclibrary/component/fabricList/FabricList";
 import SubProducts from "../pages/fabriclibrary/component/products/component/subProducts/SubProducts";
 import ProductsList from "../pages/fabriclibrary/component/products/component/productsList/ProductsList";
-import About from "../pages/about/about";
+import About from "../pages/about/About";
 
 const Home = lazy(() => import("../pages/home/Home"));
 
