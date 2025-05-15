@@ -28,7 +28,7 @@ const blogPosts = [
   },
 ];
 
-const Blog = () => {
+const OurBlog = () => {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
@@ -94,4 +94,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default OurBlog;

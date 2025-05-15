@@ -15,7 +15,7 @@ const Products = lazy(() =>
   import("../pages/fabriclibrary/component/products/Products")
 );
 
-const Blogs = lazy(() => import("../pages/blogs/blogs"));
+const OurBlogs = lazy(() => import("../pages/ourBlogs/OurBlogs"));
 const Contact = lazy(() => import("../pages/contact/contact"));
 
 export const publicRoutes = [
@@ -57,7 +57,7 @@ export const publicRoutes = [
       },
       {
         path: "blogs",
-        element: <Blogs />,
+        element: <OurBlogs />,
       },
       {
         path: "contact",
