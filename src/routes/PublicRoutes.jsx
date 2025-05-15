@@ -1,22 +1,22 @@
 import { lazy } from "react";
-import Public from "../layout/Public";
-import FabricList from "../pages/fabriclibrary/component/fabricList/FabricList";
-import SubProducts from "../pages/fabriclibrary/component/products/component/subProducts/SubProducts";
-import ProductsList from "../pages/fabriclibrary/component/products/component/productsList/ProductsList";
-import AboutUs from "../pages/aboutUs/AboutUs";
+import Public from "../layout/Public.jsx";
+import FabricList from "../pages/fabriclibrary/component/fabricList/FabricList.jsx";
+import SubProducts from "../pages/fabriclibrary/component/products/component/subProducts/SubProducts.jsx";
+import ProductsList from "../pages/fabriclibrary/component/products/component/productsList/ProductsList.jsx";
+import AboutUs from "../pages/aboutUs/AboutUs.jsx";
 
-const Home = lazy(() => import("../pages/home/Home"));
+const Home = lazy(() => import("../pages/home/Home.jsx"));
 
 const FabricLibrary = lazy(() =>
-  import("../pages/fabriclibrary/FabricLibrary")
+  import("../pages/fabriclibrary/FabricLibrary.jsx")
 );
 
 const Products = lazy(() =>
-  import("../pages/fabriclibrary/component/products/Products")
+  import("../pages/fabriclibrary/component/products/Products.jsx")
 );
 
-const OurBlogs = lazy(() => import("../pages/ourBlogs/OurBlogs"));
-const Contact = lazy(() => import("../pages/contact/contact"));
+const OurBlogs = lazy(() => import("../pages/ourBlogs/OurBlogs.jsx"));
+const Contact = lazy(() => import("../pages/contactUs/ContactUs.jsx"));
 
 export const publicRoutes = [
   {

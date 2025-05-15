@@ -25,7 +25,7 @@ const contactDetails = [
   },
 ];
 
-const Contact = () => {
+const ContactUs = () => {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
@@ -148,4 +148,5 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactUs;
+//
