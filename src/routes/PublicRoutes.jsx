@@ -3,7 +3,7 @@ import Public from "../layout/Public";
 import FabricList from "../pages/fabriclibrary/component/fabricList/FabricList";
 import SubProducts from "../pages/fabriclibrary/component/products/component/subProducts/SubProducts";
 import ProductsList from "../pages/fabriclibrary/component/products/component/productsList/ProductsList";
-import About from "../pages/about/About";
+import AboutUs from "../pages/aboutUs/AboutUs";
 
 const Home = lazy(() => import("../pages/home/Home"));
 
@@ -53,7 +53,7 @@ export const publicRoutes = [
       },
       {
         path: "about",
-        element: <About />,
+        element: <AboutUs />,
       },
       {
         path: "blogs",

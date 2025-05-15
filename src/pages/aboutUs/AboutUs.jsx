@@ -32,7 +32,7 @@ const points = [
   },
 ];
 
-const About = () => {
+const AboutUs = () => {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
@@ -106,4 +106,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutUs;
