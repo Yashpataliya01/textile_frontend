@@ -65,14 +65,15 @@ const Navbar = () => {
 
           {/* Dropdown */}
           <div className="relative group nav-item">
-            <button
-              className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 flex items-center gap-1 ${getActiveClass(
-                "/library"
-              )}`}
-              onClick={() => setFabricDropdownOpen(!fabricDropdownOpen)}
-            >
-              Fabric Library ▾
-            </button>
+            <Link to="/library">
+              <button
+                className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 flex items-center gap-1 ${getActiveClass(
+                  "/library"
+                )}`}
+              >
+                Fabric Library ▾
+              </button>
+            </Link>
             <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
               <a
                 href="#"

@@ -1,6 +1,7 @@
 import React from "react";
 import { lazy, Suspense, useEffect } from "react";
 import { Outlet, useLocation, Navigate } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 
 // import Components
 const Navbar = lazy(() => import("../components/navbar/Navbar"));
@@ -16,6 +17,7 @@ const Public = () => {
       <div>
         <Outlet />
       </div>
+      <Footer />
     </Suspense>
   );
 };
