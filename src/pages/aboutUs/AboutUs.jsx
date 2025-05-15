@@ -34,7 +34,7 @@ const points = [
 
 const AboutUs = () => {
   return (
-    <div className="bg-white text-gray-800">
+    <div className="bg-white text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
       <div
         className="relative h-[85vh] bg-cover bg-center flex items-center justify-center"
