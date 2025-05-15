@@ -53,27 +53,27 @@ const BusinessInsight = () => {
           <div className="process-steps">
             {[
               {
-                icon: "/icons/thumbs-up.svg",
+                icon: "https://static.vecteezy.com/system/resources/previews/005/309/629/non_2x/customer-care-logo-template-design-vector.jpg",
                 title: "Step 1:",
                 desc: "Customer Specification",
               },
               {
-                icon: "/icons/yarn.svg",
+                icon: "https://www.creativefabrica.com/wp-content/uploads/2022/10/11/Development-icon-Graphics-41176066-1.jpg",
                 title: "Step 2:",
                 desc: "Yarn Development",
               },
               {
-                icon: "/icons/weaving.svg",
+                icon: "https://static.vecteezy.com/system/resources/previews/045/710/418/non_2x/gear-logo-icon-vector.jpg",
                 title: "Step 3:",
                 desc: "Weaving",
               },
               {
-                icon: "/icons/processing.svg",
+                icon: "https://www.shutterstock.com/image-vector/round-convenient-icon-like-easy-260nw-2178023117.jpg",
                 title: "Step 4:",
                 desc: "Processing & Finishing",
               },
               {
-                icon: "/icons/sample.svg",
+                icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC35Q8JcwS5D4jxWTc2zCZ5OI4g5G66B20Xg&s",
                 title: "Step 5:",
                 desc: "Sample Ready",
               },
@@ -125,17 +125,17 @@ const BusinessInsight = () => {
         <div className="stats-container">
           {[
             {
-              icon: "/icons/calendar.svg",
+              icon: "https://www.shutterstock.com/image-vector/client-loyalty-customer-satisfaction-icon-600nw-2174562919.jpg",
               number: "33+",
               label: "Years in Business",
             },
             {
-              icon: "/icons/fabric.svg",
+              icon: "https://thumbs.dreamstime.com/b/black-textile-isolated-vector-icon-simple-element-illustration-industry-concept-icons-editable-logo-symbol-design-white-143598601.jpg",
               number: "8.4M+",
               label: "Meters Annually",
             },
             {
-              icon: "/icons/clients.svg",
+              icon: "https://www.shutterstock.com/image-vector/customer-vector-logo-sign-symbol-600nw-2522587743.jpg",
               number: "600+",
               label: "Satisfied Clients",
             },

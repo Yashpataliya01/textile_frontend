@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { cards } from "../../../data/Home";
 import { motion } from "framer-motion";
 
-const UniformCard = ({ icon, title, description }) => {
+const UniformCard = ({
+  icon,
+  title,
+  description,
+  isActive,
+  onActivate,
+  id,
+}) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect if we're on a mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    // Check on initial load
+    checkMobile();
+
+    // Add listener for window resize
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Function to handle touch on mobile
+  const handleTouch = (e) => {
+    e.preventDefault();
+    if (isMobile) {
+      onActivate(id);
+    }
+  };
+
   return (
     <div
-      className="relative rounded-2xl shadow-xl p-6 flex flex-col items-center text-center h-full transform transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden group"
+      className={`relative rounded-2xl shadow-xl p-6 flex flex-col items-center text-center h-full transform transition-all duration-500 overflow-hidden ${
+        isActive ? "scale-105 shadow-2xl" : ""
+      }`}
       style={{
         backgroundColor: "white",
         backgroundImage:
@@ -13,29 +48,56 @@ const UniformCard = ({ icon, title, description }) => {
         backgroundSize: "30px 30px",
         backgroundPosition: "-5px -5px",
       }}
+      // Mouse events for desktop
+      onMouseEnter={() => !isMobile && onActivate(id)}
+      onMouseLeave={() => !isMobile && onActivate(null)}
+      // Single click/touch event for mobile
+      onClick={handleTouch}
     >
-      {/* Hover Image */}
+      {/* Hover/Touch Image */}
       <img
-        src="https://images.unsplash.com/photo-1660733101148-21a9c1ad85d6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src="https://images.unsplash.com/photo-1660733101148-21a9c1ad85d6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Using placeholder instead of external image
         alt="Hover"
-        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-400 z-0"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-400 z-0 ${
+          isActive ? "opacity-100" : "opacity-0"
+        }`}
       />
 
       {/* Overlay Layer */}
-      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-400 z-10"></div>
+      <div
+        className={`absolute inset-0 bg-black transition-opacity duration-400 z-10 ${
+          isActive ? "opacity-50" : "opacity-0"
+        }`}
+      ></div>
 
       {/* Content */}
       <div className="relative z-20">
-        <div className="text-4xl mb-4 text-navy-800 group-hover:text-white transition-colors duration-300">
+        <div
+          className={`text-4xl mb-4 transition-colors duration-300 ${
+            isActive ? "text-white" : "text-navy-800"
+          }`}
+        >
           {icon}
         </div>
-        <h3 className="text-lg font-bold text-gray-800 group-hover:text-white mb-2 transition-colors duration-300">
+        <h3
+          className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+            isActive ? "text-white" : "text-gray-800"
+          }`}
+        >
           {title}
         </h3>
-        <p className="text-gray-600 group-hover:text-gray-200 text-sm mb-6 flex-grow transition-colors duration-300">
+        <p
+          className={`text-sm mb-6 flex-grow transition-colors duration-300 ${
+            isActive ? "text-gray-200" : "text-gray-600"
+          }`}
+        >
           {description}
         </p>
-        <button className="bg-black text-white mt-auto px-6 py-2 bg-navy-800 group-hover:bg-white group-hover:text-black text-sm font-semibold rounded-full transition-colors duration-300">
+        <button
+          className={`mt-auto px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-300 ${
+            isActive ? "bg-white text-black" : "bg-black text-white"
+          }`}
+        >
           Enquire Now
         </button>
       </div>
@@ -44,6 +106,14 @@ const UniformCard = ({ icon, title, description }) => {
 };
 
 const HeroWithCards = () => {
+  // State to track which card is active
+  const [activeCardId, setActiveCardId] = useState(null);
+
+  // Function to handle card activation
+  const handleCardActivate = (id) => {
+    setActiveCardId(id);
+  };
+
   return (
     <div className="flex flex-col w-full relative">
       {/* Hero Section */}
@@ -56,7 +126,7 @@ const HeroWithCards = () => {
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
           <source
-            src="https://videos.pexels.com/video-files/6460112/6460112-hd_1920_1080_25fps.mp4"
+            src="https://videos.pexels.com/video-files/6460112/6460112-hd_1920_1080_25fps.mp4" // Using placeholder instead of external video
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -83,9 +153,12 @@ const HeroWithCards = () => {
           {cards.map((card) => (
             <UniformCard
               key={card.id}
+              id={card.id}
               icon={card.icon}
               title={card.title}
               description={card.description}
+              isActive={activeCardId === card.id}
+              onActivate={handleCardActivate}
             />
           ))}
         </div>

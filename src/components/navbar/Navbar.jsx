@@ -75,18 +75,18 @@ const Navbar = () => {
               </button>
             </Link>
             <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
-              <a
-                href="#"
+              <Link
+                to="/library/0"
                 className="px-4 py-2 hover:bg-teal-100 hover:text-teal-500"
               >
                 Suitings
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/library/1"
                 className="px-4 py-2 hover:bg-teal-100 hover:text-teal-500"
               >
                 Shirtings
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -190,14 +190,14 @@ const Navbar = () => {
             {fabricDropdownOpen && (
               <div className="ml-4 mt-2 flex flex-col gap-2 text-sm">
                 <Link
-                  to="#"
+                  to="/library/0"
                   onClick={closeMobileMenu}
                   className="hover:text-teal-400"
                 >
                   Suitings
                 </Link>
                 <Link
-                  to="#"
+                  to="/library/1"
                   onClick={closeMobileMenu}
                   className="hover:text-teal-400"
                 >

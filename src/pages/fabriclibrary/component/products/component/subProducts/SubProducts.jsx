@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const subProducts = [
   {
@@ -33,14 +33,37 @@ const subProducts = [
       weight: "Weight 120 GSM",
     },
   },
-  // Add more...
 ];
 
 const SubProducts = () => {
   const { id } = useParams();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-20 bg-gray-50">
+    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-20 bg-gray-50 relative">
+      {/* Fullscreen Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.img
+              src={selectedImage}
+              alt="Full view"
+              className="max-w-4xl w-full rounded-xl"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -67,7 +90,8 @@ const SubProducts = () => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group"
+            className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group cursor-pointer"
+            onClick={() => setSelectedImage(item.image)}
           >
             <div className="overflow-hidden">
               <img
