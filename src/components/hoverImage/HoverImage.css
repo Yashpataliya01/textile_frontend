@@ -1,0 +1,41 @@
+.hover-list-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffebd5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.hover-item {
+  font-family: "Belleza", sans-serif;
+  position: relative;
+  font-size: 80px;
+  text-align: center;
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+  margin-bottom: 40px;
+  z-index: 1;
+  transition: z-index 0.2s;
+  cursor: pointer;
+}
+
+.hover-preview-image {
+  position: absolute;
+  width: 30%;
+  object-fit: contain;
+  top: 10%;
+  left: 40%;
+  z-index: 10;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}

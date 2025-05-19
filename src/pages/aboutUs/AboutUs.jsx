@@ -1,32 +1,33 @@
 import React from "react";
 import { motion } from "framer-motion";
+import HoverImage from "../../components/hoverImage/HoverImage";
 
 const points = [
   {
     title: "Our Vision",
     description:
-      "To provide quality products and services that exceed the expectations of our esteemed customers.",
+      "We envision a future where our products and services create lasting value and trust for every customer we serve. By consistently raising the bar on quality and customer experience, we strive to become a benchmark of excellence in our industry. Our goal is to innovate with purpose, stay ahead of evolving needs, and leave a meaningful impact in every interaction we have.",
     image:
       "https://images.unsplash.com/photo-1524292332709-b33366a7f165?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Our Mission",
     description:
-      "To build long term relationships with our customers and clients and provide exceptional customer services by pursuing business through innovation and advanced technology.",
+      "Our mission is to build meaningful and long-lasting relationships with our clients by delivering innovative solutions rooted in modern technology and personalized care. We are committed to achieving excellence through continuous improvement, ethical business practices, and customer-first thinking. Every product we build and every service we provide is designed to add value, foster trust, and drive long-term success.",
     image:
       "https://images.unsplash.com/photo-1707398254391-86c3a634f962?q=80&w=1952&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Our Values",
     description:
-      "We believe in treating our customers with respect and faith. We grow through creativity, invention and innovation. We integrate honesty, integrity and business ethics into all aspects of our business functioning.",
+      "We are guided by a strong foundation of values that shape who we are and how we operate. Respect, honesty, and transparency are at the core of our interactions—with clients, partners, and team members. We believe in the power of creativity, innovation, and continuous learning. Our ethical approach to business ensures that every decision is made with integrity, responsibility, and a deep sense of purpose.",
     image:
       "https://images.unsplash.com/photo-1528490194198-c3759e5e684c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     title: "Growth Philosophy",
     description:
-      "We believe in growth through innovation and technology. We are committed to continuous improvement and strive to be the best in our industry.",
+      "We believe that true growth stems from the desire to constantly evolve and improve. Our philosophy is rooted in a forward-thinking mindset that embraces change, challenges limitations, and encourages bold innovation. We invest in learning, adapt quickly to market dynamics, and remain committed to delivering excellence through cutting-edge technology and visionary leadership. Growth, for us, means growing together—with our team, our clients, and the community around us.",
     image:
       "https://images.unsplash.com/photo-1627032578588-bd0c2bb09a7f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
@@ -55,7 +56,7 @@ const AboutUs = () => {
                 About Us
               </h1>
               <p className="text-gray-100 text-lg leading-relaxed">
-                Founded in 2013, “Shiv Shakti Synthetics” under “Ankit Suitings”
+                Founded in 2011, “Shiv Shakti Synthetics” under “Ankit Suitings”
                 delivers superior uniform fabrics with refined design, texture,
                 and durability.
               </p>
@@ -102,6 +103,8 @@ const AboutUs = () => {
           </motion.div>
         ))}
       </div>
+
+      <HoverImage />
     </div>
   );
 };

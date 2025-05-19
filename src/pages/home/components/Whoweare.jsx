@@ -141,15 +141,15 @@ const Whoweare = () => {
           {/* Counters */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <AnimatedCounter
-              value={1.5}
+              value={1.0}
               suffix=" M"
               label="Ready Stock"
               duration={500}
             />
             <AnimatedCounter
-              value={1600}
+              value={1000}
               suffix="+"
-              label="Design"
+              label="Shades"
               duration={500}
             />
             <AnimatedCounter

@@ -126,17 +126,17 @@ const BusinessInsight = () => {
           {[
             {
               icon: "https://www.shutterstock.com/image-vector/client-loyalty-customer-satisfaction-icon-600nw-2174562919.jpg",
-              number: "33+",
+              number: "15+",
               label: "Years in Business",
             },
             {
               icon: "https://thumbs.dreamstime.com/b/black-textile-isolated-vector-icon-simple-element-illustration-industry-concept-icons-editable-logo-symbol-design-white-143598601.jpg",
-              number: "8.4M+",
-              label: "Meters Annually",
+              number: "5,00,000+",
+              label: "Visitors Count",
             },
             {
               icon: "https://www.shutterstock.com/image-vector/customer-vector-logo-sign-symbol-600nw-2522587743.jpg",
-              number: "600+",
+              number: "1,600+",
               label: "Satisfied Clients",
             },
           ].map((stat, idx) => (

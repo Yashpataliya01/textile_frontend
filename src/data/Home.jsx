@@ -1,67 +1,28 @@
+import { FaRegHeart } from "react-icons/fa";
+import { GiTie } from "react-icons/gi";
+import { LiaIndustrySolid } from "react-icons/lia";
+import { LuStethoscope } from "react-icons/lu";
+import { TbTie } from "react-icons/tb";
+
 export const cards = [
   {
     id: 1,
     title: "School Uniform Fabric",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-        />
-      </svg>
-    ),
+    icon: <TbTie />,
     description:
       "Tailored for comfort and durability, our school uniforms are designed to keep up with the active school day. Perfect fit for every student.",
   },
   {
     id: 2,
     title: "Health Care Uniform Fabric",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-        />
-      </svg>
-    ),
+    icon: <FaRegHeart />,
     description:
       "Experience professional-grade fabrics with our healthcare uniforms, engineered for hygiene, comfort, and long shifts.",
   },
   {
     id: 3,
     title: "Hospitality Industry Uniform Fabric",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-        />
-      </svg>
-    ),
+    icon: <LuStethoscope />,
     description:
       "Impress your guests with our stylish yet functional hospitality uniforms, crafted to enhance the professional appearance of your staff.",
   },
@@ -90,22 +51,7 @@ export const cards = [
   {
     id: 5,
     title: "Industrial Worker Uniform Fabric",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-10 w-10"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-        />
-      </svg>
-    ),
+    icon: <LiaIndustrySolid />,
     description:
       "Built to last, our industrial worker uniforms offer maximum protection and functionality in challenging work environments.",
   },

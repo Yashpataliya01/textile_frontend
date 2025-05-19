@@ -5,6 +5,7 @@ import PhotoGallery from "./components/PhotoGallery";
 import BusinessInsight from "./components/businessInsight/BusinessInsight";
 import "./Home.css";
 import useScrollAnimate from "../../components/animation/UseScrollAnimate";
+import ServiceCard from "../../components/serviceCard/ServiceCard";
 
 const Home = () => {
   useScrollAnimate();
@@ -13,6 +14,7 @@ const Home = () => {
       <div className="home-container">
         <HeroWithCards />
         <Whoweare />
+        <ServiceCard />
         <PhotoGallery />
 
         {/* The background image section with fixed background */}
