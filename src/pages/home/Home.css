@@ -31,7 +31,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
 /* Fix for mobile devices that don't support background-attachment: fixed properly */
 @media (max-width: 768px) {
   .background-section {

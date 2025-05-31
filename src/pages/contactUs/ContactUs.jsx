@@ -6,17 +6,18 @@ const contactDetails = [
   {
     icon: <FaEnvelope className="text-indigo-600 text-xl" />,
     label: "Email",
-    value: "info@shivshaktisynthetics.com",
+    value: "ankitsuitings@gmail.com",
   },
   {
     icon: <FaPhone className="text-indigo-600 text-xl" />,
     label: "Phone",
-    value: "+91 9876543210",
+    value: "+91 9413884119",
   },
   {
     icon: <FaMapMarkerAlt className="text-indigo-600 text-xl" />,
     label: "Address",
-    value: "123 Fabric Lane, Surat, Gujarat, India",
+    value:
+      "4-D-7, Opp. S.Tech College,Near Dev Narayan Circle, Patel Nagar, Bhilwara - 311001 (Raj.)",
   },
   {
     icon: <FaClock className="text-indigo-600 text-xl" />,

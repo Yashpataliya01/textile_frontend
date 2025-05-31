@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 const fabrics = [
   {
     name: "Suitings",
-    image: "https://i.ibb.co/xCzP9bc/suiting.jpg",
+    image:
+      "https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    _id: "00001",
   },
   {
     name: "Shirtings",
-    image: "https://i.ibb.co/0jkf3wr/shirting.jpg",
-  },
-  {
-    name: "Knits",
-    image: "https://i.ibb.co/z4MRF5V/knit.jpg",
+    image:
+      "https://images.unsplash.com/photo-1647013629840-13c441a3221b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    _id: "00002",
   },
 ];
 
@@ -66,7 +66,7 @@ const FabricList = () => {
                 {fabric.name}
               </h3>
               <button
-                onClick={() => navigate(`/library/${idx}`)}
+                onClick={() => navigate(`/library/${fabric._id}`)}
                 className="mt-4 px-5 py-2 text-sm font-semibold bg-white text-indigo-900 rounded-full hover:bg-indigo-900 hover:text-white transition duration-300"
               >
                 View More

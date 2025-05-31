@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const suitings = [
@@ -60,9 +60,29 @@ const suitings = [
 ];
 
 const ProductsList = () => {
-  const navigate = useNavigate();
-  const { id } = useParams();
+  const API_ORIGIN = "http://localhost:5000";
+  const { _id } = useParams();
+  const location = useLocation();
+  const { categoryName } = location.state || {};
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const url = `${API_ORIGIN}/api/products/getProducts${
+        categoryName ? `?category=${encodeURIComponent(categoryName)}` : ""
+      }`;
+      const res = await fetch(url);
+      const json = await res.json();
+      setProducts(json.data || []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50 min-h-screen pb-20">
       {/* Hero Section */}
@@ -100,14 +120,14 @@ const ProductsList = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {suitings.map((item, index) => (
+          {products?.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              onClick={() => navigate(`/library/${id}/subproducts`)}
+              onClick={() => navigate(`/library/${_id}/subproducts`)}
               className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer group"
             >
               <div className="overflow-hidden">

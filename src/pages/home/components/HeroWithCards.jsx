@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { cards } from "../../../data/Home";
 import { motion } from "framer-motion";
 
+import hero from "../../../assets/Images/Home/hero.mp4";
+
 const UniformCard = ({
   icon,
   title,
@@ -9,6 +11,7 @@ const UniformCard = ({
   isActive,
   onActivate,
   id,
+  bg,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -56,9 +59,9 @@ const UniformCard = ({
     >
       {/* Hover/Touch Image */}
       <img
-        src="https://images.unsplash.com/photo-1660733101148-21a9c1ad85d6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // Using placeholder instead of external image
+        src={bg} // Using placeholder instead of external image
         alt="Hover"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-400 z-0 ${
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-100 z-0 ${
           isActive ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -81,14 +84,14 @@ const UniformCard = ({
         </div>
         <h3
           className={`text-lg font-bold mb-2 transition-colors duration-300 ${
-            isActive ? "text-white" : "text-gray-800"
+            isActive ? "invisible" : "text-gray-800"
           }`}
         >
           {title}
         </h3>
         <p
-          className={`text-sm mb-6 flex-grow transition-colors duration-300 ${
-            isActive ? "text-gray-200" : "text-gray-600"
+          className={`text-sm mb-6 flex-grow transition-colors ${
+            isActive ? "invisible" : "text-gray-600"
           }`}
         >
           {description}
@@ -125,14 +128,15 @@ const HeroWithCards = () => {
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source
-            src="https://videos.pexels.com/video-files/6460112/6460112-hd_1920_1080_25fps.mp4" // Using placeholder instead of external video
-            type="video/mp4"
-          />
+          <source src={hero} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+
+        {/* Text Box: no inset-0 here */}
         <motion.div
-          className="absolute inset-0 bg-navy-900 bg-opacity-60 flex flex-col justify-center items-center text-center px-6 py-10"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+               bg-black/10 backdrop-blur-s border border-white/20 
+               px-6 py-10 md:p-10 rounded-xl shadow-md max-w-3xl text-center"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -140,7 +144,7 @@ const HeroWithCards = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
             Premium Uniform Fabrics
           </h1>
-          <p className="mt-4 max-w-2xl text-white text-base md:text-lg">
+          <p className="mt-4 max-w-2xl mx-auto text-white text-base md:text-lg">
             Specialized fabrics engineered for performance, comfort, and
             durability
           </p>
@@ -159,6 +163,7 @@ const HeroWithCards = () => {
               description={card.description}
               isActive={activeCardId === card.id}
               onActivate={handleCardActivate}
+              bg={card.bgImage}
             />
           ))}
         </div>

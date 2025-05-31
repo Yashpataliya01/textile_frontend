@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const subProducts = [
@@ -36,9 +36,29 @@ const subProducts = [
 ];
 
 const SubProducts = () => {
-  const { id } = useParams();
+  const API_ORIGIN = "http://localhost:5000";
+  const { _id } = useParams();
+  const location = useLocation();
+  const { categoryName, productId, categoryId } = location.state || {};
   const [selectedImage, setSelectedImage] = useState(null);
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const url = `${API_ORIGIN}/api/subproducts/getSubProducts${
+        productId ? `?productId=${encodeURIComponent(productId)}` : ""
+      }`;
+      const res = await fetch(url);
+      const json = await res.json();
+      setProducts(json.data || []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-20 bg-gray-50 relative">
       {/* Fullscreen Modal */}
@@ -83,7 +103,7 @@ const SubProducts = () => {
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {subProducts.map((item, index) => (
+        {products.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -101,12 +121,8 @@ const SubProducts = () => {
               />
             </div>
             <div className="p-5 text-center space-y-2">
-              <h3 className="text-lg font-semibold text-[#0f1130]">
-                S.NO.-{item.id}
-              </h3>
-              <p className="text-sm text-gray-500">{item.details.blend}</p>
-              <p className="text-sm text-gray-500">{item.details.material}</p>
-              <p className="text-sm text-gray-500">{item.details.weight}</p>
+              <h2 className="text-3xl text-gray-500">{item.name}</h2>
+              <p className="text-sm text-gray-500">{item.description}</p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

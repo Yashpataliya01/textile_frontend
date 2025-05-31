@@ -7,6 +7,8 @@ import "./Home.css";
 import useScrollAnimate from "../../components/animation/UseScrollAnimate";
 import ServiceCard from "../../components/serviceCard/ServiceCard";
 
+import img7 from "../../assets/Images/Home/img7.jpg";
+
 const Home = () => {
   useScrollAnimate();
   return (
@@ -21,7 +23,7 @@ const Home = () => {
         <div
           className="background-section"
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1562869929-bda0650edb1f?q=80&w=2084&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+            backgroundImage: `url(${img7})`,
           }}
         >
           <div>

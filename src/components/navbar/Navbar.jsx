@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
+import logo from "../../assets/Images/Home/Logo.png";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [fabricDropdownOpen, setFabricDropdownOpen] = useState(false);
@@ -25,18 +27,11 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-md top-0 left-0 w-full z-50 h-20">
+    <header className="bg-white shadow-md top-0 left-0 w-full z-50 h-24">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <img
-            src="https://i.ibb.co/W6ZXdqN/2021-10-26-16h20-21.png"
-            alt="Logo"
-            className="h-10 w-auto"
-          />
-          <span className="text-lg font-bold text-gray-800 hidden sm:block">
-            Brand
-          </span>
+          <img src={logo} alt="Logo" className="h-16 w-auto" />
         </Link>
 
         {/* Desktop Nav */}
@@ -44,7 +39,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/"
-              className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
                 "/"
               )}`}
             >
@@ -55,7 +50,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/about"
-              className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
                 "/about"
               )}`}
             >
@@ -67,7 +62,7 @@ const Navbar = () => {
           <div className="relative group nav-item">
             <Link to="/library">
               <button
-                className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 flex items-center gap-1 ${getActiveClass(
+                className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 flex items-center gap-1 ${getActiveClass(
                   "/library"
                 )}`}
               >
@@ -77,13 +72,13 @@ const Navbar = () => {
             <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
               <Link
                 to="/library/0"
-                className="px-4 py-2 hover:bg-teal-100 hover:text-teal-500"
+                className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
               >
                 Suitings
               </Link>
               <Link
                 to="/library/1"
-                className="px-4 py-2 hover:bg-teal-100 hover:text-teal-500"
+                className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
               >
                 Shirtings
               </Link>
@@ -93,7 +88,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/blogs"
-              className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
                 "/blogs"
               )}`}
             >
@@ -103,17 +98,13 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/contact"
-              className={`transition-all duration-300 transform hover:text-teal-400 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
                 "/contact"
               )}`}
             >
               Contact Us
             </Link>
           </li>
-
-          <button className="ml-4 bg-teal-400 hover:bg-teal-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-            Enquiry
-          </button>
         </nav>
 
         {/* Hamburger */}
@@ -135,12 +126,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center px-4 py-4 border-b">
           <a href="#" className="flex items-center space-x-2">
-            <img
-              src="https://i.ibb.co/W6ZXdqN/2021-10-26-16h20-21.png"
-              alt="Logo"
-              className="h-8"
-            />
-            <span className="text-xl font-semibold text-gray-800">Brand</span>
+            <img src={logo} alt="Logo" className="h-8" />
           </a>
           <button
             className="text-gray-700 text-2xl font-bold"
@@ -159,7 +145,7 @@ const Navbar = () => {
           >
             <Link
               to="/"
-              className="transition-all duration-300 transform hover:text-teal-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
             >
               Home
             </Link>
@@ -172,7 +158,7 @@ const Navbar = () => {
           >
             <Link
               to="/about"
-              className="transition-all duration-300 transform hover:text-teal-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
             >
               About Us
             </Link>
@@ -192,14 +178,14 @@ const Navbar = () => {
                 <Link
                   to="/library/0"
                   onClick={closeMobileMenu}
-                  className="hover:text-teal-400"
+                  className="hover:text-orange-400"
                 >
                   Suitings
                 </Link>
                 <Link
                   to="/library/1"
                   onClick={closeMobileMenu}
-                  className="hover:text-teal-400"
+                  className="hover:text-orange-400"
                 >
                   Shirtings
                 </Link>
@@ -214,7 +200,7 @@ const Navbar = () => {
           >
             <Link
               to="/blogs"
-              className="transition-all duration-300 transform hover:text-teal-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
             >
               Blogs
             </Link>
@@ -227,15 +213,11 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className="transition-all duration-300 transform hover:text-teal-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
             >
               Contact Us
             </Link>
           </li>
-
-          <button className="w-full bg-teal-400 hover:bg-teal-500 text-white font-semibold py-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-            Enquiry
-          </button>
         </ul>
       </div>
     </header>

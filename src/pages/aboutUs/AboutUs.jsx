@@ -1,38 +1,39 @@
 import React from "react";
 import { motion } from "framer-motion";
 import HoverImage from "../../components/hoverImage/HoverImage";
+import ServiceCard from "../../components/serviceCard/ServiceCard";
+
+import growth from "../../assets/Images/About/growth.png";
+import value from "../../assets/Images/About/value.png";
+import mission from "../../assets/Images/About/mission.png";
+import vision from "../../assets/Images/About/vision.png";
 
 const points = [
   {
     title: "Our Vision",
     description:
       "We envision a future where our products and services create lasting value and trust for every customer we serve. By consistently raising the bar on quality and customer experience, we strive to become a benchmark of excellence in our industry. Our goal is to innovate with purpose, stay ahead of evolving needs, and leave a meaningful impact in every interaction we have.",
-    image:
-      "https://images.unsplash.com/photo-1524292332709-b33366a7f165?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: vision,
   },
   {
     title: "Our Mission",
     description:
       "Our mission is to build meaningful and long-lasting relationships with our clients by delivering innovative solutions rooted in modern technology and personalized care. We are committed to achieving excellence through continuous improvement, ethical business practices, and customer-first thinking. Every product we build and every service we provide is designed to add value, foster trust, and drive long-term success.",
-    image:
-      "https://images.unsplash.com/photo-1707398254391-86c3a634f962?q=80&w=1952&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: mission,
   },
   {
     title: "Our Values",
     description:
       "We are guided by a strong foundation of values that shape who we are and how we operate. Respect, honesty, and transparency are at the core of our interactions—with clients, partners, and team members. We believe in the power of creativity, innovation, and continuous learning. Our ethical approach to business ensures that every decision is made with integrity, responsibility, and a deep sense of purpose.",
-    image:
-      "https://images.unsplash.com/photo-1528490194198-c3759e5e684c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: value,
   },
   {
     title: "Growth Philosophy",
     description:
       "We believe that true growth stems from the desire to constantly evolve and improve. Our philosophy is rooted in a forward-thinking mindset that embraces change, challenges limitations, and encourages bold innovation. We invest in learning, adapt quickly to market dynamics, and remain committed to delivering excellence through cutting-edge technology and visionary leadership. Growth, for us, means growing together—with our team, our clients, and the community around us.",
-    image:
-      "https://images.unsplash.com/photo-1627032578588-bd0c2bb09a7f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: growth,
   },
 ];
-
 const AboutUs = () => {
   return (
     <div className="bg-white text-gray-800 overflow-x-hidden">
@@ -103,7 +104,7 @@ const AboutUs = () => {
           </motion.div>
         ))}
       </div>
-
+      <ServiceCard />
       <HoverImage />
     </div>
   );

@@ -4,6 +4,24 @@ import { LiaIndustrySolid } from "react-icons/lia";
 import { LuStethoscope } from "react-icons/lu";
 import { TbTie } from "react-icons/tb";
 
+// imports images
+import img1 from "../assets/Images/Home/img1.jpg";
+import img2 from "../assets/Images/Home/img2.jpg";
+import img3 from "../assets/Images/Home/img3.jpg";
+import img4 from "../assets/Images/Home/img4.jpg";
+import img5 from "../assets/Images/Home/img5.jpg";
+import img6 from "../assets/Images/Home/img6.jpg";
+import img7 from "../assets/Images/Home/img7.jpg";
+import img8 from "../assets/Images/Home/img8.jpg";
+import img9 from "../assets/Images/Home/img9.png";
+
+import School from "../assets/Images/Home/School.png";
+import Health from "../assets/Images/Home/Health.png";
+import Hospitality from "../assets/Images/Home/Hospital.png";
+import Workplace from "../assets/Images/Home/Workplace.png";
+import Industrial from "../assets/Images/Home/Industrial.png";
+import Security from "../assets/Images/Home/Security.png";
+
 export const cards = [
   {
     id: 1,
@@ -11,20 +29,23 @@ export const cards = [
     icon: <TbTie />,
     description:
       "Tailored for comfort and durability, our school uniforms are designed to keep up with the active school day. Perfect fit for every student.",
+    bgImage: Hospitality,
   },
   {
     id: 2,
     title: "Health Care Uniform Fabric",
-    icon: <FaRegHeart />,
+    icon: <LuStethoscope />,
     description:
       "Experience professional-grade fabrics with our healthcare uniforms, engineered for hygiene, comfort, and long shifts.",
+    bgImage: Health,
   },
   {
     id: 3,
     title: "Hospitality Industry Uniform Fabric",
-    icon: <LuStethoscope />,
+    icon: <FaRegHeart />,
     description:
       "Impress your guests with our stylish yet functional hospitality uniforms, crafted to enhance the professional appearance of your staff.",
+    bgImage: School,
   },
   {
     id: 4,
@@ -47,6 +68,7 @@ export const cards = [
     ),
     description:
       "Elevate your corporate identity with our workplace uniforms that combine style, comfort, and practicality for daily wear.",
+    bgImage: Workplace,
   },
   {
     id: 5,
@@ -54,6 +76,7 @@ export const cards = [
     icon: <LiaIndustrySolid />,
     description:
       "Built to last, our industrial worker uniforms offer maximum protection and functionality in challenging work environments.",
+    bgImage: Industrial,
   },
   {
     id: 6,
@@ -76,16 +99,19 @@ export const cards = [
     ),
     description:
       "Ensure a commanding presence with our security uniforms, designed for visibility, authority, and comfort during long hours.",
+    bgImage: Security,
   },
 ];
 
 export const images = [
-  "https://images.unsplash.com/photo-1630312752393-6f20bfa6e04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1660980041852-230420b8f99f?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1617694820985-a5476fe22722?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1613076321656-23dcdd3aea92?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1631089819675-ce4528460a32?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://plus.unsplash.com/premium_photo-1664299852788-5a24db0d7e05?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1562869929-bda0650edb1f?q=80&w=2084&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1613076321656-23dcdd3aea92?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  img1,
+  img2,
+  img4,
+  img3,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img2,
 ];

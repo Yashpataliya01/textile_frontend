@@ -1,12 +1,24 @@
+.hover-title {
+  background-color: #ffebd5;
+}
+.hover-title h1 {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 700;
+  color: black;
+}
+
 .hover-list-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #ffebd5;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .hover-list {
@@ -14,28 +26,61 @@
   padding: 0;
   margin: 0;
   position: relative;
+  text-align: center;
 }
 
 .hover-item {
   font-family: "Belleza", sans-serif;
-  position: relative;
   font-size: 80px;
-  text-align: center;
   -webkit-text-stroke: 1px black;
   color: transparent;
   margin-bottom: 40px;
   z-index: 1;
   transition: z-index 0.2s;
   cursor: pointer;
+  position: relative;
 }
 
 .hover-preview-image {
-  position: absolute;
-  width: 30%;
+  position: fixed; /* Changed from absolute to fixed */
+  width: 20%;
   object-fit: contain;
-  top: 10%;
-  left: 40%;
+  top: 30%;
+  left: 50%;
   z-index: 10;
   pointer-events: none;
   transform: translate(-50%, -50%);
+}
+
+.hover-preview-image-mobile {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .hover-item {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .hover-list-container {
+    min-height: 80vh;
+    flex-direction: column;
+  }
+
+  .hover-preview-image {
+    display: none; /* Hide desktop hover image */
+  }
+  .hover-title h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+  }
 }

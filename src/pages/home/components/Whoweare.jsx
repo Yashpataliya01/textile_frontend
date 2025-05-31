@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSpring, useTrail, animated } from "@react-spring/web";
+
+import img1 from "../../../assets/Images/Home/img5.jpg";
+import img2 from "../../../assets/Images/Home/img6.jpg";
+import img3 from "../../../assets/Images/Home/img7.jpg";
+import img4 from "../../../assets/Images/Home/img8.jpg";
+import img5 from "../../../assets/Images/Home/img9.png";
 
 const AnimatedCounter = ({
   value,
@@ -108,7 +115,7 @@ const Whoweare = () => {
   const headers = [
     "Know Who We Are?",
     "An Ultimate Fabric Brand",
-    "Market Since 1992",
+    "Market Since 2011",
   ];
 
   return (
@@ -129,12 +136,9 @@ const Whoweare = () => {
             <p className="text-xl text-gray-700 mb-4">{headers[2]}</p>
             <div className="w-14 h-1 bg-black mb-6"></div>
             <p className="text-gray-700 mb-8 text-base leading-relaxed">
-              For 33 years, ASHA SULZ FAB LLP has built a reputation for
-              understanding the unique challenges our customers face and having
-              a keen appreciation for the ever-evolving nature of their
-              business. We're committed to helping customers succeed. It's what
-              drives us to continually develop innovative Fabrics that deliver
-              exceptional value.
+              Founded in 2011, “Shiv Shakti Synthetics” under “Ankit Suitings”
+              delivers superior uniform fabrics with refined design, texture,
+              and durability.
             </p>
           </div>
 
@@ -162,10 +166,12 @@ const Whoweare = () => {
 
           {/* Button */}
           <div>
-            <button className="bg-black hover:bg-indigo-800 text-white px-6 py-3 rounded-md font-semibold shadow-lg transition-all duration-300 relative overflow-hidden group">
-              <span className="relative z-10">Know More</span>
-              <span className="absolute inset-0 border border-white opacity-30 rounded-md"></span>
-            </button>
+            <Link to="/about">
+              <button className="bg-black hover:bg-indigo-800 text-white px-6 py-3 rounded-md font-semibold shadow-lg transition-all duration-300 relative overflow-hidden group">
+                <span className="relative z-10">Know More</span>
+                <span className="absolute inset-0 border border-white opacity-30 rounded-md"></span>
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -173,35 +179,35 @@ const Whoweare = () => {
         <div className="grid grid-cols-2 gap-3">
           <div className="col-span-2 h-44 rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition">
             <img
-              src="https://images.unsplash.com/photo-1660733101148-21a9c1ad85d6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img1}
               alt="Fabric 1"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="h-52 rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition">
             <img
-              src="https://images.unsplash.com/photo-1625471592808-3b848a6e9ffd?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img5}
               alt="Fabric 2"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="h-52 rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition">
             <img
-              src="https://images.unsplash.com/photo-1630312752393-6f20bfa6e04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img2}
               alt="Fabric 3"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="h-44 rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition">
             <img
-              src="https://images.unsplash.com/photo-1630312752393-6f20bfa6e04b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img3}
               alt="Fabric 4"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="h-44 rounded-xl overflow-hidden shadow-md transform hover:scale-105 transition">
             <img
-              src="https://images.unsplash.com/photo-1660733101148-21a9c1ad85d6?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src={img4}
               alt="Fabric 5"
               className="w-full h-full object-cover"
             />
