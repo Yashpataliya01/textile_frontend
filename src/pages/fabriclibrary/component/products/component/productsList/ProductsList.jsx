@@ -2,66 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const suitings = [
-  {
-    name: "Designer Suitings",
-    pages: "1-18",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Trovine",
-    pages: "19-24",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Mellinium Suiting",
-    pages: "25-28",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Cotton Club Suiting",
-    pages: "29-32",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Worsted Suiting",
-    pages: "33-34",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Saraj",
-    pages: "35-36",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Sapphire",
-    pages: "37-38",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Trouser",
-    pages: "39-41",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-  {
-    name: "Wrinkle Free",
-    pages: "42",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-  },
-];
-
 const ProductsList = () => {
   const API_ORIGIN = "http://localhost:5000";
-  const { _id } = useParams();
   const location = useLocation();
   const { categoryName } = location.state || {};
   const [products, setProducts] = useState([]);
@@ -93,7 +35,7 @@ const ProductsList = () => {
         className="w-full h-[300px] md:h-[400px] bg-cover bg-center flex items-center justify-center text-center px-4"
         style={{
           backgroundImage:
-            "url('https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp')",
+            "url('https://fabricpandit.com/cdn/shop/products/fabric-pandit-fabric-eggplant-violet-twill-premium-suiting-fabric-width-58-inches-36283619672239.jpg?v=1682078526&width=1946')",
         }}
       >
         <div className="bg-black/60 p-8 rounded-lg max-w-2xl">
@@ -127,7 +69,15 @@ const ProductsList = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              onClick={() => navigate(`/library/${_id}/subproducts`)}
+              onClick={() =>
+                navigate(`/library/${categoryName}/${item._id}`, {
+                  state: {
+                    categoryName: item?.name,
+                    productId: item?._id,
+                    categoryId: categoryName,
+                  },
+                })
+              }
               className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer group"
             >
               <div className="overflow-hidden">

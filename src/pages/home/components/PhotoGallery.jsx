@@ -3,8 +3,10 @@ import { X, ZoomIn, Heart, Share2 } from "lucide-react";
 import { images } from "../../../data/Home";
 
 const PhotoGallery = () => {
+  console.log()
   const [selectedImage, setSelectedImage] = useState(null);
   const [likedImages, setLikedImages] = useState(new Set());
+  const [viewAllOpen, setViewAllOpen] = useState(false);
 
   const toggleLike = (index, e) => {
     e.stopPropagation();
@@ -85,7 +87,7 @@ const PhotoGallery = () => {
 
           {/* Desktop: Complex asymmetrical layout */}
           <div className="hidden md:block relative">
-            {/* Row 1: Irregular heights and widths */}
+            {/* Row 1 */}
             <div className="flex gap-6 mb-6 h-96">
               <ImageCard
                 src={images[0]}
@@ -115,7 +117,7 @@ const PhotoGallery = () => {
               />
             </div>
 
-            {/* Row 2: Different proportions */}
+            {/* Row 2 */}
             <div className="flex gap-6 mb-6 h-72">
               <ImageCard
                 src={images[4]}
@@ -139,7 +141,7 @@ const PhotoGallery = () => {
               />
             </div>
 
-            {/* Row 3: Wide and narrow mix */}
+            {/* Row 3 */}
             <div className="flex gap-6 mb-6 h-64">
               <div className="w-1/3 flex flex-col gap-6">
                 <ImageCard
@@ -163,10 +165,20 @@ const PhotoGallery = () => {
               />
             </div>
           </div>
+
+          {/* View All Button */}
+          <div className="flex justify-center mt-8">
+            <button
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              onClick={() => setViewAllOpen(true)}
+            >
+              View All
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Clean Modal */}
+      {/* Clean Modal for selectedImage */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
@@ -213,6 +225,40 @@ const PhotoGallery = () => {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* View All Modal */}
+      {viewAllOpen && (
+        <div
+          className="fixed inset-0 z-10 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm overflow-auto"
+          onClick={() => setViewAllOpen(false)}
+        >
+          <button
+            className="absolute top-6 right-6 z-60 p-3 bg-white rounded-full text-gray-800 hover:bg-gray-100 transition-all duration-300"
+            onClick={() => setViewAllOpen(false)}
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <div
+            className="relative max-w-6xl w-full bg-white rounded-3xl p-8 shadow-2xl overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxHeight: "90vh" }}
+          >
+            <h3 className="text-3xl font-semibold mb-6">All Images</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+              {images.map((img, idx) => (
+                <ImageCard
+                  key={idx}
+                  src={img}
+                  index={idx}
+                  className="h-48 rounded-2xl"
+                  onClick={() => setSelectedImage({ src: img, index: idx })}
+                />
+              ))}
             </div>
           </div>
         </div>

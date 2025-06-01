@@ -1,34 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const blogPosts = [
-  {
-    title: "The Rise of Sustainable Fabrics",
-    excerpt:
-      "Explore how eco-friendly materials are transforming the textile industry and what it means for the future of fashion.",
-    image:
-      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=2070&auto=format&fit=crop",
-    date: "April 12, 2025",
-  },
-  {
-    title: "Top 5 Trends in Uniform Suitings",
-    excerpt:
-      "From minimalistic shades to tech-enhanced weaves, discover what’s hot in the world of uniform fabrics.",
-    image:
-      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=2070&auto=format&fit=crop",
-    date: "March 30, 2025",
-  },
-  {
-    title: "Why Cotton Blends Are Here to Stay",
-    excerpt:
-      "A look into the durability and comfort of cotton blends — a favorite among premium shirting manufacturers.",
-    image:
-      "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=2070&auto=format&fit=crop",
-    date: "February 18, 2025",
-  },
-];
-
 const OurBlog = () => {
+  const API_ORIGIN = "http://localhost:5000"; // Change when deployed
+  const [blogs, setBlogs] = useState([]);
+  const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const dummyBlogs = [
+    {
+      _id: "dummy1",
+      title: "The Legacy of Shiv Shakti Synthetics: From 2011 to Today",
+      image: "/images/factory-legacy.jpg",
+      description:
+        "Founded in 2011, Shiv Shakti Synthetics under the esteemed label Ankit Suitings has become a trusted name in the textile industry. With a focus on delivering premium-quality uniform fabrics, our journey started with a vision to combine refined design, unmatched texture, and long-lasting durability.",
+      createdAt: new Date().toISOString(),
+    },
+    {
+      _id: "dummy2",
+      title: "Why Uniform Fabric Quality Matters — And How We Lead the Way",
+      image: "/images/uniform-quality.jpg",
+      description:
+        "At Shiv Shakti Synthetics, we believe that the fabric you wear defines the brand you represent. That’s why our team at Ankit Suitings crafts fabrics that go beyond just looks. Our materials are carefully engineered to be resilient, breathable, and colorfast, making them ideal for long hours of daily use.",
+      createdAt: new Date().toISOString(),
+    },
+  ];
+
+  useEffect(() => {
+    fetch(`${API_ORIGIN}/api/blogs/getBlogs`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.data?.length > 0) {
+          setBlogs(data.data);
+        } else {
+          setBlogs(dummyBlogs);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch blogs:", err);
+        setBlogs(dummyBlogs);
+      });
+  }, []);
+
+  const formatDate = (isoDate) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(isoDate).toLocaleDateString("en-IN", options);
+  };
+
+  const truncateText = (text, wordLimit = 30) => {
+    const words = text.split(" ");
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(" ") + "...";
+  };
+
   return (
     <div className="bg-white text-gray-800">
       {/* Hero Section */}
@@ -59,37 +82,80 @@ const OurBlog = () => {
         </div>
       </div>
 
-      {/* Blog Posts */}
-      <div className="py-20 px-6 md:px-20 grid gap-14 sm:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((post, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-56 object-cover"
-            />
-            <div className="p-6">
-              <p className="text-sm text-gray-400 mb-1">{post.date}</p>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                {post.title}
-              </h2>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {post.excerpt}
-              </p>
-              <button className="mt-4 text-indigo-600 hover:underline text-sm font-medium">
-                Read More →
-              </button>
+      {/* Blog Cards */}
+      <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
+        <h1 className="text-3xl font-bold mb-8 text-center text-blue-900">
+          Latest Blogs
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {blogs.map((blog) => (
+            <div
+              key={blog._id}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedBlog(blog)}
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="w-full h-60 object-cover"
+              />
+              <div className="p-5">
+                <h2 className="text-xl font-semibold text-gray-800">
+                  {blog.title}
+                </h2>
+                <p className="text-gray-600 text-sm mt-2">
+                  {truncateText(blog.description)}
+                </p>
+                <div className="text-xs text-gray-500 mt-3">
+                  <span>By Admin</span> •{" "}
+                  <span>{formatDate(blog.createdAt)}</span>
+                </div>
+              </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      {/* Blog Modal */}
+      {selectedBlog && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+          <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-lg">
+            <button
+              onClick={() => setSelectedBlog(null)}
+              className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-red-100 transition-colors"
+              aria-label="Close"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-red-500 hover:text-red-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <img
+              src={selectedBlog.image}
+              alt={selectedBlog.title}
+              className="w-full h-64 object-cover rounded-md mb-5"
+            />
+            <h2 className="text-2xl font-bold mb-2">{selectedBlog.title}</h2>
+            <p className="text-sm text-gray-500 mb-4">
+              By Admin • {formatDate(selectedBlog.createdAt)}
+            </p>
+            <p className="text-gray-700 whitespace-pre-line">
+              {selectedBlog.description}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

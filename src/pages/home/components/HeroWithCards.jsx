@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { cards } from "../../../data/Home";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import hero from "../../../assets/Images/Home/hero.mp4";
 
@@ -96,13 +97,15 @@ const UniformCard = ({
         >
           {description}
         </p>
-        <button
-          className={`mt-auto px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-300 ${
-            isActive ? "bg-white text-black" : "bg-black text-white"
-          }`}
-        >
-          Enquire Now
-        </button>
+        <Link to="/contact">
+          <button
+            className={`mt-auto px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-300 ${
+              isActive ? "bg-white text-black" : "bg-black text-white"
+            }`}
+          >
+            Enquire Now
+          </button>
+        </Link>
       </div>
     </div>
   );

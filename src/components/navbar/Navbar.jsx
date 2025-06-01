@@ -71,13 +71,13 @@ const Navbar = () => {
             </Link>
             <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
               <Link
-                to="/library/0"
+                to="/library"
                 className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
               >
                 Suitings
               </Link>
               <Link
-                to="/library/1"
+                to="/library"
                 className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
               >
                 Shirtings

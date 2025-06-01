@@ -4,6 +4,16 @@ import { LiaIndustrySolid } from "react-icons/lia";
 import { LuStethoscope } from "react-icons/lu";
 import { TbTie } from "react-icons/tb";
 
+import {
+  otherImages,
+  School,
+  Health,
+  Hospitality,
+  Workplace,
+  Industrial,
+  Security,
+} from "../assets/Images/Images";
+
 // imports images
 import img1 from "../assets/Images/Home/img1.jpg";
 import img2 from "../assets/Images/Home/img2.jpg";
@@ -14,13 +24,6 @@ import img6 from "../assets/Images/Home/img6.jpg";
 import img7 from "../assets/Images/Home/img7.jpg";
 import img8 from "../assets/Images/Home/img8.jpg";
 import img9 from "../assets/Images/Home/img9.png";
-
-import School from "../assets/Images/Home/School.png";
-import Health from "../assets/Images/Home/Health.png";
-import Hospitality from "../assets/Images/Home/Hospital.png";
-import Workplace from "../assets/Images/Home/Workplace.png";
-import Industrial from "../assets/Images/Home/Industrial.png";
-import Security from "../assets/Images/Home/Security.png";
 
 export const cards = [
   {
@@ -103,15 +106,4 @@ export const cards = [
   },
 ];
 
-export const images = [
-  img1,
-  img2,
-  img4,
-  img3,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
-  img2,
-];
+export const images = otherImages;

@@ -1,46 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-
-const subProducts = [
-  {
-    id: "F1",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-    details: {
-      blend: "Blend",
-      material: "Polyester Cotton blended",
-      weight: "Weight 130 GSM",
-    },
-  },
-  {
-    id: "F2",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-    details: {
-      blend: "Blend",
-      material: "Polyester Cotton blended",
-      weight: "Weight 120 GSM",
-    },
-  },
-  {
-    id: "F3",
-    image:
-      "https://ashafabs.com/wp-content/uploads/2024/09/designer-Shirting-PGNo.44.webp",
-    details: {
-      blend: "Blend",
-      material: "Polyester Cotton blended",
-      weight: "Weight 120 GSM",
-    },
-  },
-];
+import { useParams, useLocation, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SubProducts = () => {
   const API_ORIGIN = "http://localhost:5000";
   const { _id } = useParams();
   const location = useLocation();
   const { categoryName, productId, categoryId } = location.state || {};
-  const [selectedImage, setSelectedImage] = useState(null);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -61,29 +27,6 @@ const SubProducts = () => {
   };
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-20 bg-gray-50 relative">
-      {/* Fullscreen Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-          >
-            <motion.img
-              src={selectedImage}
-              alt="Full view"
-              className="max-w-4xl w-full rounded-xl"
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -111,7 +54,6 @@ const SubProducts = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group cursor-pointer"
-            onClick={() => setSelectedImage(item.image)}
           >
             <div className="overflow-hidden">
               <img
@@ -123,13 +65,22 @@ const SubProducts = () => {
             <div className="p-5 text-center space-y-2">
               <h2 className="text-3xl text-gray-500">{item.name}</h2>
               <p className="text-sm text-gray-500">{item.description}</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 w-full bg-[#0f1130] text-white py-2 rounded-lg text-sm font-medium transition duration-300 hover:bg-[#1f214f]"
+              <Link
+                to={`/library/${categoryId}/${productId}/${item._id}`}
+                state={{
+                  categoryName: item.name,
+                  productId: item._id,
+                  categoryId: categoryName,
+                }}
               >
-                Enquire Now
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-4 w-full bg-[#0f1130] text-white py-2 rounded-lg text-sm font-medium transition duration-300 hover:bg-[#1f214f]"
+                >
+                  View
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         ))}

@@ -15,6 +15,12 @@ const Products = lazy(() =>
   import("../pages/fabriclibrary/component/products/Products.jsx")
 );
 
+const SubProductsImages = lazy(() =>
+  import(
+    "../pages/fabriclibrary/component/products/component/subProductsImages/SubProductsImages.jsx"
+  )
+);
+
 const OurBlogs = lazy(() => import("../pages/ourBlogs/OurBlogs.jsx"));
 const Contact = lazy(() => import("../pages/contactUs/ContactUs.jsx"));
 
@@ -29,23 +35,27 @@ export const publicRoutes = [
       },
       {
         path: "library",
-        element: <FabricLibrary />, // has <Outlet />
+        element: <FabricLibrary />,
         children: [
           {
             index: true,
             element: <FabricList />,
           },
           {
-            path: ":id",
-            element: <Products />, // ✅ This wraps ProductsList and has <Outlet />
+            path: ":categoryId",
+            element: <Products />,
             children: [
               {
                 index: true,
                 element: <ProductsList />,
               },
               {
-                path: "subproducts",
+                path: ":productId",
                 element: <SubProducts />,
+              },
+              {
+                path: ":productId/:subProducImagetId",
+                element: <SubProductsImages />,
               },
             ],
           },

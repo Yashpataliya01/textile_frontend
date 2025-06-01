@@ -66,7 +66,11 @@ const FabricList = () => {
                 {fabric.name}
               </h3>
               <button
-                onClick={() => navigate(`/library/${fabric._id}`)}
+                onClick={() =>
+                  navigate(`/library/${fabric._id}`, {
+                    state: { categoryName: fabric._id },
+                  })
+                }
                 className="mt-4 px-5 py-2 text-sm font-semibold bg-white text-indigo-900 rounded-full hover:bg-indigo-900 hover:text-white transition duration-300"
               >
                 View More

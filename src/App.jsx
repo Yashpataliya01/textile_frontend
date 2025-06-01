@@ -1,26 +1,27 @@
-// react library imports
 import { Suspense, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
-import "./App.css";
-
-// animation libraries
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { FaWhatsapp } from "react-icons/fa"; // import WhatsApp icon
+import "./App.css";
 
-// import routes
 import { routes } from "./routes/Routes";
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1200, // longer duration for more noticeable animation
-      offset: 100, // start the animation 100px before it comes into view
+      duration: 1200,
+      offset: 100,
       easing: "ease-out-quart",
-      once: false, // set to false if you want animations to repeat on scroll
-      mirror: true, // animate on scroll up as well
+      once: false,
+      mirror: true,
     });
   }, []);
+
+  // WhatsApp URL with your number and a default message (optional)
+  const whatsappNumber = "9413884119";
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
     <motion.div
@@ -32,6 +33,17 @@ function App() {
       <Suspense>
         <RouterProvider router={routes} />
       </Suspense>
+
+      {/* WhatsApp floating icon */}
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="Chat on WhatsApp"
+      >
+        <FaWhatsapp size={40} color="white" />
+      </a>
     </motion.div>
   );
 }
