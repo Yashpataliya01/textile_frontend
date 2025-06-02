@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X, ZoomIn, Heart, Share2 } from "lucide-react";
 import { images } from "../../../data/Home";
 
 const PhotoGallery = () => {
-  console.log()
   const [selectedImage, setSelectedImage] = useState(null);
   const [likedImages, setLikedImages] = useState(new Set());
   const [viewAllOpen, setViewAllOpen] = useState(false);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    const isModalOpen = selectedImage || viewAllOpen;
+
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage, viewAllOpen]);
 
   const toggleLike = (index, e) => {
     e.stopPropagation();
@@ -181,7 +195,7 @@ const PhotoGallery = () => {
       {/* Clean Modal for selectedImage */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <button

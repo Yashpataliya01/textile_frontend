@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Scissors,
   Mail,
   Phone,
   MapPin,
