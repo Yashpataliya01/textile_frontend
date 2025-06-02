@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/Images/Home/logo.jpg";
+import logo from "../../assets/Images/Home/Logo.jpg";
 
 const Footer = () => {
   // Define the links array correctly
