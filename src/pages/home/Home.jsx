@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import HeroWithCards from "./components/HeroWithCards";
 import Whoweare from "./components/Whoweare";
 import PhotoGallery from "./components/PhotoGallery";
@@ -7,7 +7,7 @@ import "./Home.css";
 import useScrollAnimate from "../../components/animation/UseScrollAnimate";
 import ServiceCard from "../../components/serviceCard/ServiceCard";
 
-import img7 from "../../assets/Images/Home/img7.jpg";
+import img3 from "../../assets/Images/Home/Business_Insight.jpg";
 
 const Home = () => {
   useScrollAnimate();
@@ -23,7 +23,7 @@ const Home = () => {
         <div
           className="background-section"
           style={{
-            backgroundImage: `url(${img7})`,
+            backgroundImage: `url(${img3})`,
           }}
         >
           <div>

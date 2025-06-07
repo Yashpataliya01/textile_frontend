@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/Images/Home/Logo.jpg";
+import logo from "../../assets/Images/Home/Logo.jpeg";
 
 const Footer = () => {
   // Define the links array correctly
@@ -38,7 +38,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-white to-white text-black pt-16 pb-6 relative overflow-hidden">
+    <footer className="bg-[#1B1C2D] text-gray-300 pt-16 pb-6 relative overflow-hidden">
       {/* Decorative textile patterns in background */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -75,7 +75,7 @@ const Footer = () => {
               {/* Scissors icon in a stylized badge */}
               <img src={logo} alt="" className="h-16 w-auto" />
             </div>
-            <p className="text-black">
+            <p className="text-gray-300">
               Founded in 2011, "Shiv Shakti Synthetics" under "Ankit Suitings"
               delivers superior uniform fabrics with refined design, texture,
               and durability.
@@ -100,7 +100,7 @@ const Footer = () => {
                 >
                   <Link
                     to={item.link}
-                    className="flex items-center text-black hover:text-orange-400"
+                    className="flex items-center text-gray-300 hover:text-orange-400"
                   >
                     <span className="w-2 h-2 bg-orange-500 rounded-full inline-block mr-3"></span>
                     {item.name}
@@ -127,7 +127,7 @@ const Footer = () => {
               ].map((service, index) => (
                 <div key={index} className="flex items-start">
                   <div className="h-5 w-5 rounded-full border border-orange-500 flex-shrink-0 mt-1"></div>
-                  <p className="text-black ml-3">{service}</p>
+                  <p className="text-gray-300 ml-3">{service}</p>
                 </div>
               ))}
             </div>
@@ -142,15 +142,15 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
-                <p className="text-black ml-3">ankitsuitings@gmail.com</p>
+                <p className="text-gray-300 ml-3">ankitsuitings@gmail.com</p>
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
-                <p className="text-black ml-3">+91 9413884119</p>
+                <p className="text-gray-300 ml-3">+91 9413884119</p>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
-                <p className="text-black ml-3">
+                <p className="text-gray-300 ml-3">
                   4-D-7, Opp. S.Tech College,
                   <br />
                   Near Dev Narayan Circle, Patel Nagar, Bhilwara - 311001 (Raj.)
@@ -167,7 +167,7 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="bg-gray-800 text-black px-4 py-2 rounded-l-md flex-grow focus:outline-none focus:ring-1 focus:ring-orange-500"
+                  className="bg-gray-800 text-gray-300 px-4 py-2 rounded-l-md flex-grow focus:outline-none focus:ring-1 focus:ring-orange-500"
                 />
                 <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-r-md transition-colors duration-300">
                   Send

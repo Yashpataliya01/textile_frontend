@@ -145,12 +145,8 @@ const HeroWithCards = () => {
           transition={{ duration: 1 }}
         >
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
-            Premium Uniform Fabrics
+            The House of Uniform Fabrics
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-white text-base md:text-lg">
-            Specialized fabrics engineered for performance, comfort, and
-            durability
-          </p>
         </motion.div>
       </div>
 

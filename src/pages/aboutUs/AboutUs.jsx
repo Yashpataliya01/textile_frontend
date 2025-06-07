@@ -7,6 +7,7 @@ import growth from "../../assets/Images/About/growth.png";
 import value from "../../assets/Images/About/value.png";
 import mission from "../../assets/Images/About/mission.png";
 import vision from "../../assets/Images/About/vision.png";
+import hero from "../../assets/Images/About/About_hero.png";
 
 const points = [
   {
@@ -41,8 +42,7 @@ const AboutUs = () => {
       <div
         className="relative h-[85vh] bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1707472362166-cf11e5752ade?q=80")',
+          backgroundImage: `url(${hero})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />

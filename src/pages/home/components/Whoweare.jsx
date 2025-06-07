@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSpring, useTrail, animated } from "@react-spring/web";
 
-import img1 from "../../../assets/Images/Home/img5.jpg";
-import img2 from "../../../assets/Images/Home/img6.jpg";
-import img3 from "../../../assets/Images/Home/img7.jpg";
-import img4 from "../../../assets/Images/Home/img8.jpg";
-import img5 from "../../../assets/Images/Home/img9.png";
+import img1 from "../../../assets/Images/Home/img5.jpeg";
+import img2 from "../../../assets/Images/Home/img6.jpeg";
+import img3 from "../../../assets/Images/Home/img7.jpeg";
+import img4 from "../../../assets/Images/Home/img8.jpeg";
+import img5 from "../../../assets/Images/Home/img9.jpeg";
 
 const AnimatedCounter = ({
   value,
@@ -115,7 +115,7 @@ const Whoweare = () => {
   const headers = [
     "Know Who We Are?",
     "An Ultimate Fabric Brand",
-    "Market Since 2011",
+    "Since 2011",
   ];
 
   return (

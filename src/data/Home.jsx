@@ -14,17 +14,6 @@ import {
   Security,
 } from "../assets/Images/Images";
 
-// imports images
-import img1 from "../assets/Images/Home/img1.jpg";
-import img2 from "../assets/Images/Home/img2.jpg";
-import img3 from "../assets/Images/Home/img3.jpg";
-import img4 from "../assets/Images/Home/img4.jpg";
-import img5 from "../assets/Images/Home/img5.jpg";
-import img6 from "../assets/Images/Home/img6.jpg";
-import img7 from "../assets/Images/Home/img7.jpg";
-import img8 from "../assets/Images/Home/img8.jpg";
-import img9 from "../assets/Images/Home/img9.png";
-
 export const cards = [
   {
     id: 1,

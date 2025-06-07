@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { X, ZoomIn, Heart, Share2 } from "lucide-react";
-import { images } from "../../../data/Home";
 
 const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [likedImages, setLikedImages] = useState(new Set());
   const [viewAllOpen, setViewAllOpen] = useState(false);
+  const [images, setImages] = useState([]);
 
-  // Prevent background scroll when modal is open
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/galaries/getGalaries`
+        );
+        const data = await res.json();
+        setImages(data.data || []);
+      } catch (err) {
+        console.error("Error fetching gallery images:", err);
+      }
+    })();
+  }, []);
+
   useEffect(() => {
     const isModalOpen = selectedImage || viewAllOpen;
-
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = isModalOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -44,11 +51,7 @@ const PhotoGallery = () => {
         alt=""
         className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
       />
-
-      {/* Subtle overlay */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-
-      {/* Clean action buttons */}
       <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
         <button
           onClick={(e) => toggleLike(index, e)}
@@ -74,7 +77,6 @@ const PhotoGallery = () => {
   return (
     <>
       <section className="min-h-screen px-6 py-20 bg-gray-50">
-        {/* Clean header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
             Photo Gallery
@@ -84,103 +86,136 @@ const PhotoGallery = () => {
           </p>
         </div>
 
-        {/* Dynamic Masonry-style Grid */}
         <div className="max-w-7xl mx-auto">
-          {/* Mobile: Simple stacked layout */}
           <div className="block md:hidden space-y-6">
             {images.slice(0, 8).map((img, idx) => (
               <ImageCard
                 key={idx}
-                src={img}
+                src={img?.image}
                 index={idx}
                 className="w-full h-64 rounded-2xl"
-                onClick={() => setSelectedImage({ src: img, index: idx })}
+                onClick={() => setSelectedImage({ src: img.image, index: idx })}
               />
             ))}
           </div>
 
-          {/* Desktop: Complex asymmetrical layout */}
           <div className="hidden md:block relative">
-            {/* Row 1 */}
             <div className="flex gap-6 mb-6 h-96">
-              <ImageCard
-                src={images[0]}
-                index={0}
-                className="w-1/4 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[0], index: 0 })}
-              />
+              {images[0] && (
+                <ImageCard
+                  src={images[0].image}
+                  index={0}
+                  className="w-1/4 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[0].image, index: 0 })
+                  }
+                />
+              )}
               <div className="w-2/5 flex flex-col gap-6">
-                <ImageCard
-                  src={images[1]}
-                  index={1}
-                  className="h-2/3 rounded-2xl"
-                  onClick={() => setSelectedImage({ src: images[1], index: 1 })}
-                />
-                <ImageCard
-                  src={images[2]}
-                  index={2}
-                  className="h-1/3 rounded-2xl"
-                  onClick={() => setSelectedImage({ src: images[2], index: 2 })}
-                />
+                {images[1] && (
+                  <ImageCard
+                    src={images[1].image}
+                    index={1}
+                    className="h-2/3 rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[1].image, index: 1 })
+                    }
+                  />
+                )}
+                {images[2] && (
+                  <ImageCard
+                    src={images[2].image}
+                    index={2}
+                    className="h-1/3 rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[2].image, index: 2 })
+                    }
+                  />
+                )}
               </div>
-              <ImageCard
-                src={images[3]}
-                index={3}
-                className="w-1/3 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[3], index: 3 })}
-              />
+              {images[3] && (
+                <ImageCard
+                  src={images[3].image}
+                  index={3}
+                  className="w-1/3 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[3].image, index: 3 })
+                  }
+                />
+              )}
             </div>
 
-            {/* Row 2 */}
             <div className="flex gap-6 mb-6 h-72">
-              <ImageCard
-                src={images[4]}
-                index={4}
-                className="w-2/5 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[4], index: 4 })}
-              />
-              <div className="w-1/5 h-full">
+              {images[4] && (
                 <ImageCard
-                  src={images[5]}
-                  index={5}
-                  className="h-full rounded-2xl"
-                  onClick={() => setSelectedImage({ src: images[5], index: 5 })}
+                  src={images[4].image}
+                  index={4}
+                  className="w-2/5 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[4].image, index: 4 })
+                  }
                 />
-              </div>
-              <ImageCard
-                src={images[6]}
-                index={6}
-                className="w-2/5 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[6], index: 6 })}
-              />
+              )}
+              {images[5] && (
+                <div className="w-1/5 h-full">
+                  <ImageCard
+                    src={images[5].image}
+                    index={5}
+                    className="h-full rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[5].image, index: 5 })
+                    }
+                  />
+                </div>
+              )}
+              {images[6] && (
+                <ImageCard
+                  src={images[6].image}
+                  index={6}
+                  className="w-2/5 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[6].image, index: 6 })
+                  }
+                />
+              )}
             </div>
 
-            {/* Row 3 */}
             <div className="flex gap-6 mb-6 h-64">
-              <div className="w-1/3 flex flex-col gap-6">
+              {images[7] && (
+                <div className="w-1/3 flex flex-col gap-6">
+                  <ImageCard
+                    src={images[7].image}
+                    index={7}
+                    className="h-full rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[7].image, index: 7 })
+                    }
+                  />
+                </div>
+              )}
+              {images[8] && (
                 <ImageCard
-                  src={images[7]}
-                  index={7}
-                  className="h-full rounded-2xl"
-                  onClick={() => setSelectedImage({ src: images[7], index: 7 })}
+                  src={images[8].image}
+                  index={8}
+                  className="w-1/4 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[8].image, index: 8 })
+                  }
                 />
-              </div>
-              <ImageCard
-                src={images[8]}
-                index={8}
-                className="w-1/4 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[8], index: 8 })}
-              />
-              <ImageCard
-                src={images[9]}
-                index={9}
-                className="w-5/12 h-full rounded-2xl"
-                onClick={() => setSelectedImage({ src: images[9], index: 9 })}
-              />
+              )}
+              {images[9] && (
+                <ImageCard
+                  src={images[9].image}
+                  index={9}
+                  className="w-5/12 h-full rounded-2xl"
+                  onClick={() =>
+                    setSelectedImage({ src: images[9].image, index: 9 })
+                  }
+                />
+              )}
             </div>
           </div>
 
-          {/* View All Button */}
           <div className="flex justify-center mt-8">
             <button
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
@@ -192,7 +227,6 @@ const PhotoGallery = () => {
         </div>
       </section>
 
-      {/* Clean Modal for selectedImage */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
@@ -204,7 +238,6 @@ const PhotoGallery = () => {
           >
             <X className="w-6 h-6" />
           </button>
-
           <div
             className="relative max-w-4xl max-h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
@@ -214,7 +247,6 @@ const PhotoGallery = () => {
               alt="Selected"
               className="w-full h-full object-contain"
             />
-
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="flex items-center justify-between">
                 <div className="flex gap-3">
@@ -244,7 +276,6 @@ const PhotoGallery = () => {
         </div>
       )}
 
-      {/* View All Modal */}
       {viewAllOpen && (
         <div
           className="fixed inset-0 z-10 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm overflow-auto"
@@ -256,7 +287,6 @@ const PhotoGallery = () => {
           >
             <X className="w-6 h-6" />
           </button>
-
           <div
             className="relative max-w-6xl w-full bg-white rounded-3xl p-8 shadow-2xl overflow-auto"
             onClick={(e) => e.stopPropagation()}
@@ -267,10 +297,12 @@ const PhotoGallery = () => {
               {images.map((img, idx) => (
                 <ImageCard
                   key={idx}
-                  src={img}
+                  src={img?.image}
                   index={idx}
                   className="h-48 rounded-2xl"
-                  onClick={() => setSelectedImage({ src: img, index: idx })}
+                  onClick={() =>
+                    setSelectedImage({ src: img.image, index: idx })
+                  }
                 />
               ))}
             </div>

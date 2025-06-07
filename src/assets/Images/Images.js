@@ -13,24 +13,12 @@ const otherImageModules = import.meta.glob("./other/*.{png,jpg,jpeg,svg}", {
 import img1 from "./Home/img1.jpg";
 import img2 from "./Home/img2.jpg";
 import img3 from "./Home/img3.jpg";
-import img4 from "./Home/img4.jpg";
-import img5 from "./Home/img5.jpg";
-import img6 from "./Home/img6.jpg";
-import img7 from "./Home/img7.jpg";
-import img8 from "./Home/img8.jpg";
-import img9 from "./Home/img9.png";
 
 // Combine them all
 export const otherImages = [
   img1,
   img2,
   img3,
-  img4,
-  img5,
-  img6,
-  img7,
-  img8,
-  img9,
   ...Object.values(otherImageModules),
 ];
 
