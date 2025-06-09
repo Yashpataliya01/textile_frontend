@@ -64,13 +64,13 @@ const OurBlog = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
         <div className="relative z-10 px-6">
-          <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 md:p-10 rounded-xl shadow-md text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto backdrop-blur-md bg-black/10 border border-white/20 px-6 py-10 md:p-10 rounded-xl shadow-md max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              <h1 className="text-white text-5xl font-semibold mb-4 tracking-wide">
+              <h1 className="text-white text-7xl font-semibold mb-4 tracking-wide">
                 Insights & Stories
               </h1>
               <p className="text-gray-100 text-lg leading-relaxed">

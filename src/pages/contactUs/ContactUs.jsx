@@ -6,7 +6,7 @@ const contactDetails = [
   {
     icon: <FaEnvelope className="text-indigo-600 text-xl" />,
     label: "Email",
-    value: "ankitsuitings@gmail.com",
+    value: "info@ankitsuiting.com",
   },
   {
     icon: <FaPhone className="text-indigo-600 text-xl" />,

@@ -138,7 +138,7 @@ const HeroWithCards = () => {
         {/* Text Box: no inset-0 here */}
         <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-               bg-black/10 backdrop-blur-s border border-white/20 
+               backdrop-blur-md bg-black/10 border border-white/20 
                px-6 py-10 md:p-10 rounded-xl shadow-md max-w-3xl text-center"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

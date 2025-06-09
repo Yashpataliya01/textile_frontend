@@ -7,6 +7,8 @@ import img from "../../assets/Images/About/img.png";
 import img2 from "../../assets/Images/About/img2.png";
 import img3 from "../../assets/Images/About/img3.jpeg";
 
+import certificate from "../../assets/Images/About/certificate.jpg";
+
 const items = [
   {
     label: "GST Certificate",
@@ -17,11 +19,11 @@ const items = [
     image: img,
   },
   {
-    label: "Management Certificate",
+    label: "ISO Certificate",
     image: img2,
   },
   {
-    label: "Lifetime Certificate",
+    label: "Bhilwara Textile Trade Federation Certificate",
     image: img3,
   },
 ];
@@ -69,10 +71,17 @@ const HoverImage = () => {
 
   return (
     <>
-      <div className="hover-title">
-        <h1>Certificates</h1>
-      </div>
-      <div className="hover-list-container">
+      <div className="hover-list-container relative">
+        <div className="hover-title">
+          <h1>Certificates</h1>
+        </div>
+        <div
+          className="hover-certificate"
+          style={{
+            backgroundImage: `url(${certificate})`,
+            backgroundSize: "cover",
+          }}
+        ></div>
         <AnimatePresence>
           {!isMobile && hoveredImage && (
             <motion.img

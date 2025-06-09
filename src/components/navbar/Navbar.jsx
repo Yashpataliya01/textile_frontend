@@ -39,7 +39,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/"
-              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-blue-500 hover:scale-105 ${getActiveClass(
                 "/"
               )}`}
             >
@@ -50,7 +50,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/about"
-              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-blue-500 hover:scale-105 ${getActiveClass(
                 "/about"
               )}`}
             >
@@ -62,7 +62,7 @@ const Navbar = () => {
           <div className="relative group nav-item">
             <Link to="/library">
               <button
-                className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 flex items-center gap-1 ${getActiveClass(
+                className={`transition-all duration-300 transform hover:text-blue-500 hover:scale-105 flex items-center gap-1 ${getActiveClass(
                   "/library"
                 )}`}
               >
@@ -72,13 +72,13 @@ const Navbar = () => {
             <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
               <Link
                 to="/library"
-                className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
+                className="px-4 py-2 hover:bg-blue-100 hover:text-blue-500"
               >
                 Suitings
               </Link>
               <Link
                 to="/library"
-                className="px-4 py-2 hover:bg-orange-100 hover:text-orange-500"
+                className="px-4 py-2 hover:bg-blue-100 hover:text-blue-500"
               >
                 Shirtings
               </Link>
@@ -88,7 +88,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/blogs"
-              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-blue-500 hover:scale-105 ${getActiveClass(
                 "/blogs"
               )}`}
             >
@@ -98,7 +98,7 @@ const Navbar = () => {
           <li className="list-none nav-item">
             <Link
               to="/contact"
-              className={`transition-all duration-300 transform hover:text-orange-500 hover:scale-105 ${getActiveClass(
+              className={`transition-all duration-300 transform hover:text-blue-500 hover:scale-105 ${getActiveClass(
                 "/contact"
               )}`}
             >
@@ -145,7 +145,7 @@ const Navbar = () => {
           >
             <Link
               to="/"
-              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-blue-500 hover:scale-105"
             >
               Home
             </Link>
@@ -158,7 +158,7 @@ const Navbar = () => {
           >
             <Link
               to="/about"
-              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-blue-500 hover:scale-105"
             >
               About Us
             </Link>
@@ -174,18 +174,18 @@ const Navbar = () => {
               <span>{fabricDropdownOpen ? "▴" : "▾"}</span>
             </button>
             {fabricDropdownOpen && (
-              <div className="ml-4 mt-2 flex flex-col gap-2 text-sm">
+              <div className="ml-4 mt-2 flex flex-col gap-2 text-m">
                 <Link
-                  to="/library/0"
+                  to="/library"
                   onClick={closeMobileMenu}
-                  className="hover:text-orange-400"
+                  className="hover:text-blue-500"
                 >
                   Suitings
                 </Link>
                 <Link
-                  to="/library/1"
+                  to="/library"
                   onClick={closeMobileMenu}
-                  className="hover:text-orange-400"
+                  className="hover:text-blue-500"
                 >
                   Shirtings
                 </Link>
@@ -200,7 +200,7 @@ const Navbar = () => {
           >
             <Link
               to="/blogs"
-              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-blue-500 hover:scale-105"
             >
               Blogs
             </Link>
@@ -213,7 +213,7 @@ const Navbar = () => {
           >
             <Link
               to="/contact"
-              className="transition-all duration-300 transform hover:text-orange-400 hover:scale-105"
+              className="transition-all duration-300 transform hover:text-blue-500 hover:scale-105"
             >
               Contact Us
             </Link>

@@ -1,5 +1,6 @@
 .hover-title {
-  background-color: #ffebd5;
+  z-index: 1;
+  margin-bottom: 60px;
 }
 .hover-title h1 {
   text-align: center;
@@ -7,14 +8,19 @@
   font-weight: 700;
   color: black;
 }
+.hover-certificate {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
 .hover-list-container {
   width: 100vw;
   min-height: 100vh;
-  background-color: #ffebd5;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
   padding: 20px;

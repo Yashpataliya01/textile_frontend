@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const ProductsList = () => {
   const API_ORIGIN = "http://localhost:5000";
   const location = useLocation();
-  const { categoryName } = location.state || {};
+  const { categoryName, name } = location.state || {};
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const ProductsList = () => {
       >
         <div className="bg-black/60 p-8 rounded-lg max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Premium Suitings
+            Premium {name}
           </h1>
           <p className="text-gray-200 text-lg">
             Discover luxury fabrics crafted for modern elegance — suited for
@@ -91,7 +91,6 @@ const ProductsList = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-1">
                   {item.name}
                 </h3>
-                <p className="text-sm text-gray-500">Pages: {item.pages}</p>
               </div>
             </motion.div>
           ))}

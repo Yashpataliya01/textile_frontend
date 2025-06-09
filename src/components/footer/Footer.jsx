@@ -39,34 +39,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#1B1C2D] text-gray-300 pt-16 pb-6 relative overflow-hidden">
-      {/* Decorative textile patterns in background */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute top-0 left-0 w-full h-full"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px)",
-          }}
-        ></div>
-        <div
-          className="absolute top-0 left-0 w-full h-full rotate-45"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px)",
-          }}
-        ></div>
-      </div>
-
-      {/* Decorative thread elements */}
-      <div className="absolute top-0 right-0 w-32 h-32 -mt-10 -mr-10">
-        <div className="absolute w-full h-full rounded-full border-4 border-dashed border-orange-500 opacity-20"></div>
-        <div className="absolute w-3/4 h-3/4 top-1/8 left-1/8 rounded-full border-4 border-dashed border-orange-300 opacity-20"></div>
-      </div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 -mb-10 -ml-10">
-        <div className="absolute w-full h-full rounded-full border-4 border-dashed border-teal-500 opacity-20"></div>
-        <div className="absolute w-3/4 h-3/4 top-1/8 left-1/8 rounded-full border-4 border-dashed border-teal-300 opacity-20"></div>
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
@@ -142,7 +114,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <Mail className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
-                <p className="text-gray-300 ml-3">ankitsuitings@gmail.com</p>
+                <p className="text-gray-300 ml-3">info@ankitsuiting.com</p>
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
@@ -157,23 +129,6 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-
-            {/* Newsletter Signup */}
-            {/* <div className="mt-6 pt-6 border-t border-gray-700">
-              <h4 className="text-sm font-semibold uppercase tracking-wider mb-3">
-                Join our newsletter
-              </h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-gray-800 text-gray-300 px-4 py-2 rounded-l-md flex-grow focus:outline-none focus:ring-1 focus:ring-orange-500"
-                />
-                <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-r-md transition-colors duration-300">
-                  Send
-                </button>
-              </div>
-            </div> */}
           </div>
         </div>
 
@@ -211,33 +166,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Fabric Swatch Element */}
-        <div className="absolute right-12 -bottom-10 hidden lg:block">
-          <div className="flex">
-            {[
-              "bg-orange-500",
-              "bg-indigo-600",
-              "bg-teal-500",
-              "bg-rose-500",
-              "bg-amber-500",
-            ].map((color, index) => (
-              <div
-                key={index}
-                className={`w-8 h-24 ${color} transform rotate-12 -mr-2 rounded-sm shadow-lg`}
-                style={{ opacity: 0.85 - index * 0.1 }}
-              ></div>
-            ))}
-          </div>
-        </div>
-
-        {/* Added textile bobbin decoration */}
-        <div className="absolute left-1/4 bottom-16 hidden lg:block opacity-10">
-          <div className="w-20 h-20 border-8 border-orange-400 rounded-full relative">
-            <div className="absolute inset-0 border-4 border-dashed border-white rounded-full animate-spin-slow"></div>
-            <div className="absolute h-24 w-1 bg-orange-400 -top-24 left-1/2 transform -translate-x-1/2"></div>
           </div>
         </div>
       </div>
