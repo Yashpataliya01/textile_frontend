@@ -4,25 +4,25 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const contactDetails = [
   {
-    icon: <FaEnvelope className="text-indigo-600 text-xl" />,
+    icon: <FaEnvelope className="text-[#1B1C2D] text-xl" />,
     label: "Email",
     value: "info@ankitsuiting.com",
   },
   {
-    icon: <FaPhone className="text-indigo-600 text-xl" />,
+    icon: <FaPhone className="text-[#1B1C2D] text-xl" />,
     label: "Phone",
     value: "+91 9413884119",
   },
   {
-    icon: <FaMapMarkerAlt className="text-indigo-600 text-xl" />,
+    icon: <FaMapMarkerAlt className="text-[#1B1C2D] text-xl" />,
     label: "Address",
     value:
       "4-D-7, Opp. S.Tech College,Near Dev Narayan Circle, Patel Nagar, Bhilwara - 311001 (Raj.)",
   },
   {
-    icon: <FaClock className="text-indigo-600 text-xl" />,
+    icon: <FaClock className="text-[#1B1C2D] text-xl" />,
     label: "Working Hours",
-    value: "Mon – Sat: 9:00 AM – 6:00 PM",
+    value: "Mon – Sat: 10:00 AM – 8:00 PM",
   },
 ];
 
@@ -93,7 +93,7 @@ const ContactUs = () => {
               className="bg-white shadow-lg rounded-3xl p-12"
               style={{ flex: "1 1 50%" }}
             >
-              <h2 className="text-3xl font-semibold text-indigo-800 mb-10 border-b border-indigo-200 pb-4">
+              <h2 className="text-3xl font-semibold text-[#1B1C2D] mb-10 border-b border-indigo-200 pb-4">
                 Send us a message
               </h2>
               <form className="space-y-8">
@@ -125,7 +125,7 @@ const ContactUs = () => {
                 })}
                 <button
                   type="submit"
-                  className="w-full bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-3 rounded-xl shadow-md transition"
+                  className="w-full bg-[#1B1C2D] hover:bg-indigo-900 text-white font-semibold py-3 rounded-xl shadow-md transition"
                 >
                   Send Message
                 </button>
@@ -141,7 +141,7 @@ const ContactUs = () => {
               className="bg-white rounded-3xl shadow-lg p-12"
               style={{ flex: "1 1 50%" }}
             >
-              <h2 className="text-3xl font-semibold text-indigo-800 mb-10 border-b border-indigo-200 pb-4">
+              <h2 className="text-3xl font-semibold text-[#1B1C2D] mb-10 border-b border-indigo-200 pb-4">
                 Get in Touch
               </h2>
               <div className="space-y-8">
@@ -154,7 +154,7 @@ const ContactUs = () => {
                       {icon}
                     </div>
                     <div>
-                      <p className="font-semibold text-indigo-900">{label}</p>
+                      <p className="font-semibold text-[#1B1C2D]">{label}</p>
                       <p className="text-gray-700 text-sm leading-snug max-w-xs">
                         {value}
                       </p>
@@ -181,7 +181,7 @@ const ContactUs = () => {
             Whether you want to discuss a new project or just say hello, our
             doors are always open. Come by and let's chat over coffee.
           </p>
-          <button className="bg-indigo-700 text-white px-10 py-3 rounded-full font-semibold shadow-lg hover:bg-indigo-800 transition">
+          <button className="bg-[#1B1C2D] text-white px-10 py-3 rounded-full font-semibold shadow-lg hover:bg-indigo-800 transition">
             Get Directions
           </button>
         </motion.div>

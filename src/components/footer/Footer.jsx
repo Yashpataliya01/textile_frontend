@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/Images/Home/Logo.jpeg";
+import logo from "../../assets/Images/About/footerLogo.png";
 
 const Footer = () => {
   // Define the links array correctly
@@ -53,15 +53,15 @@ const Footer = () => {
               and durability.
             </p>
             <div className="pt-2">
-              <div className="h-1 w-12 bg-orange-500 mb-1"></div>
-              <div className="h-1 w-24 bg-orange-500"></div>
+              <div className="h-1 w-12 bg-orange-700 mb-1"></div>
+              <div className="h-1 w-24 bg-orange-700"></div>
             </div>
           </div>
 
           {/* Quick Links - FIXED */}
           <div>
             <h3 className="text-xl font-semibold mb-6 flex items-center">
-              <span className="inline-block w-8 h-px bg-orange-500 mr-2"></span>
+              <span className="inline-block w-8 h-px bg-orange-700 mr-2"></span>
               Quick Links
             </h3>
             <ul className="space-y-4">
@@ -74,7 +74,7 @@ const Footer = () => {
                     to={item.link}
                     className="flex items-center text-gray-300 hover:text-orange-400"
                   >
-                    <span className="w-2 h-2 bg-orange-500 rounded-full inline-block mr-3"></span>
+                    <span className="w-2 h-2 bg-orange-700 rounded-full inline-block mr-3"></span>
                     {item.name}
                   </Link>
                 </li>
@@ -85,7 +85,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-xl font-semibold mb-6 flex items-center">
-              <span className="inline-block w-8 h-px bg-orange-500 mr-2"></span>
+              <span className="inline-block w-8 h-px bg-orange-700 mr-2"></span>
               Our Services
             </h3>
             <div className="space-y-4">
@@ -108,20 +108,20 @@ const Footer = () => {
           {/* Contact Us */}
           <div>
             <h3 className="text-xl font-semibold mb-6 flex items-center">
-              <span className="inline-block w-8 h-px bg-orange-500 mr-2"></span>
+              <span className="inline-block w-8 h-px bg-orange-700 mr-2"></span>
               Contact Us
             </h3>
             <div className="space-y-4">
               <div className="flex items-start">
-                <Mail className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
+                <Mail className="h-5 w-5 text-orange-700 flex-shrink-0 mt-1" />
                 <p className="text-gray-300 ml-3">info@ankitsuiting.com</p>
               </div>
               <div className="flex items-start">
-                <Phone className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
+                <Phone className="h-5 w-5 text-orange-700 flex-shrink-0 mt-1" />
                 <p className="text-gray-300 ml-3">+91 9413884119</p>
               </div>
               <div className="flex items-start">
-                <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0 mt-1" />
+                <MapPin className="h-5 w-5 text-orange-700 flex-shrink-0 mt-1" />
                 <p className="text-gray-300 ml-3">
                   4-D-7, Opp. S.Tech College,
                   <br />
@@ -135,17 +135,26 @@ const Footer = () => {
         {/* Social Media and Bottom Section */}
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-4 mb-4 md:mb-0">
-              {[Instagram, Facebook, Twitter, Linkedin].map((Icon, index) => (
+            <div className="flex items-center justify-center flex-wrap gap-4 text-sm text-gray-600">
+              <span className="font-mediu text-white">Follow us on:</span>
+              {[
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Facebook, label: "Facebook" },
+                { Icon: Twitter, label: "Twitter" },
+                { Icon: Linkedin, label: "LinkedIn" },
+              ].map(({ Icon, label }, index) => (
                 <a
                   key={index}
                   href="#"
-                  className="bg-gray-800 p-2 rounded-full hover:bg-orange-500 transition-colors duration-300 bg-transparent"
+                  aria-label={label}
+                  title={label}
+                  className="bg-gray-800 text-white p-2 rounded-full hover:bg-orange-600 hover:scale-105 transform transition-all duration-300"
                 >
-                  <Icon className="h-5 w-5" />
+                  <Icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
+
             <div className="flex flex-col md:flex-row items-center text-gray-400 text-sm">
               <div className="mr-0 md:mr-6 mb-2 md:mb-0">
                 &copy; {new Date().getFullYear()} Ankit Suitings. All rights

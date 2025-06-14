@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -18,7 +18,25 @@ const fabrics = [
 ];
 
 const FabricList = () => {
+  const API_ORIGIN = "http://localhost:5000";
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      const res = await fetch(`${API_ORIGIN}/api/categories/getCategories`);
+      const json = await res.json();
+      if (json.success) setCategories(json.data);
+    } catch (err) {
+      console.error("Fetch error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="bg-gray-50 py-20 px-6 md:px-16 text-center">
@@ -40,15 +58,20 @@ const FabricList = () => {
       </motion.div>
 
       {/* Fabric Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {fabrics.map((fabric, idx) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+        {categories.map((fabric, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 bg-white transition duration-300"
+            className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 bg-white transition duration-300 cursor-pointer"
+            onClick={() =>
+              navigate(`/library/${fabric._id}`, {
+                state: { categoryName: fabric._id, name: fabric.name },
+              })
+            }
           >
             {/* Image */}
             <img

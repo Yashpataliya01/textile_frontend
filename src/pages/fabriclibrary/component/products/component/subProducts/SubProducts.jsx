@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SubProducts = () => {
@@ -8,6 +8,7 @@ const SubProducts = () => {
   const location = useLocation();
   const { categoryName, productId, categoryId } = location.state || {};
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -36,7 +37,7 @@ const SubProducts = () => {
         className="text-center mb-16"
       >
         <h1 className="text-4xl md:text-5xl font-bold text-[#0f1130]">
-          Premium {categoryName}
+          {categoryName}
         </h1>
         <div className="w-20 h-1 bg-[#0f1130] mx-auto mt-4 rounded-full animate-pulse"></div>
         <p className="max-w-2xl mx-auto mt-6 text-gray-600 leading-relaxed">
@@ -55,6 +56,16 @@ const SubProducts = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             className="flex flex-col bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden group cursor-pointer h-full min-h-[450px]"
+            onClick={() =>
+              navigate(`/library/${categoryId}/${productId}/${item._id}`, {
+                state: {
+                  categoryName: item.name,
+                  productId: item._id,
+                  categoryId: categoryName,
+                  categoryDescription: item.description,
+                },
+              })
+            }
           >
             <div className="overflow-hidden">
               <img
@@ -76,6 +87,7 @@ const SubProducts = () => {
                   categoryName: item.name,
                   productId: item._id,
                   categoryId: categoryName,
+                  categoryDescription: item.description,
                 }}
               >
                 <motion.button

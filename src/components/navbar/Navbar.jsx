@@ -66,23 +66,9 @@ const Navbar = () => {
                   "/library"
                 )}`}
               >
-                Fabric Library ▾
+                Fabric Library
               </button>
             </Link>
-            <div className="absolute hidden group-hover:flex flex-col bg-white shadow-md mt-0 rounded z-10 w-40 text-sm text-gray-800">
-              <Link
-                to="/library"
-                className="px-4 py-2 hover:bg-blue-100 hover:text-blue-500"
-              >
-                Suitings
-              </Link>
-              <Link
-                to="/library"
-                className="px-4 py-2 hover:bg-blue-100 hover:text-blue-500"
-              >
-                Shirtings
-              </Link>
-            </div>
           </div>
 
           <li className="list-none nav-item">
@@ -166,31 +152,15 @@ const Navbar = () => {
 
           {/* Fabric Dropdown in Mobile */}
           <li>
-            <button
-              onClick={handleDropdownClick}
+            <Link
+              to="/library"
+              onClick={() => {
+                closeMobileMenu();
+              }}
               className="flex justify-between w-full"
             >
               <span className={getActiveClass("/library")}>Fabric Library</span>
-              <span>{fabricDropdownOpen ? "▴" : "▾"}</span>
-            </button>
-            {fabricDropdownOpen && (
-              <div className="ml-4 mt-2 flex flex-col gap-2 text-m">
-                <Link
-                  to="/library"
-                  onClick={closeMobileMenu}
-                  className="hover:text-blue-500"
-                >
-                  Suitings
-                </Link>
-                <Link
-                  to="/library"
-                  onClick={closeMobileMenu}
-                  className="hover:text-blue-500"
-                >
-                  Shirtings
-                </Link>
-              </div>
-            )}
+            </Link>
           </li>
           <li
             className={getActiveClass("/blogs")}

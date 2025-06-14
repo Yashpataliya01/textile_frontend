@@ -40,7 +40,7 @@ const ProductsList = () => {
       >
         <div className="bg-black/60 p-8 rounded-lg max-w-2xl">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Premium {name}
+            {name}
           </h1>
           <p className="text-gray-200 text-lg">
             Discover luxury fabrics crafted for modern elegance — suited for
