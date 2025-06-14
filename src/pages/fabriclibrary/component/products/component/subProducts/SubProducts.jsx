@@ -3,7 +3,7 @@ import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SubProducts = () => {
-  const API_ORIGIN = "http://localhost:5000";
+  const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const { _id } = useParams();
   const location = useLocation();
   const { categoryName, productId, categoryId } = location.state || {};

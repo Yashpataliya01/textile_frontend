@@ -18,7 +18,7 @@ const fabrics = [
 ];
 
 const FabricList = () => {
-  const API_ORIGIN = "http://localhost:5000";
+  const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 

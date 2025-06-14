@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SubProductImages = () => {
-  const API_ORIGIN = "http://localhost:5000";
+  const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const location = useLocation();
   const { productId, categoryId, categoryName, categoryDescription } =
     location.state || {};
