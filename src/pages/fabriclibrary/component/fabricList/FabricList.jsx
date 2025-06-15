@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// error handling for image loading
+import NoData from "../../../../assets/Images/other/NoData.jpg";
+
 const fabrics = [
   {
     name: "Suitings",
@@ -58,50 +61,66 @@ const FabricList = () => {
       </motion.div>
 
       {/* Fabric Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
-        {categories.map((fabric, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 bg-white transition duration-300 cursor-pointer"
-            onClick={() =>
-              navigate(`/library/${fabric._id}`, {
-                state: { categoryName: fabric._id, name: fabric.name },
-              })
-            }
-          >
-            {/* Image */}
-            <img
-              src={fabric.image}
-              alt={fabric.name}
-              className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110"
-            />
+      {categories.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+          {categories.map((fabric, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 bg-white transition duration-300 cursor-pointer"
+              onClick={() =>
+                navigate(`/library/${fabric._id}`, {
+                  state: { categoryName: fabric._id, name: fabric.name },
+                })
+              }
+            >
+              {/* Image */}
+              <img
+                src={fabric.image}
+                alt={fabric.name}
+                className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
 
-            {/* Content */}
-            <div className="absolute bottom-6 left-6 text-left z-20">
-              <h3 className="text-white text-2xl font-semibold drop-shadow-md">
-                {fabric.name}
-              </h3>
-              <button
-                onClick={() =>
-                  navigate(`/library/${fabric._id}`, {
-                    state: { categoryName: fabric._id, name: fabric.name },
-                  })
-                }
-                className="mt-4 px-5 py-2 text-sm font-semibold bg-white text-indigo-900 rounded-full hover:bg-indigo-900 hover:text-white transition duration-300"
-              >
-                View More
-              </button>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              {/* Content */}
+              <div className="absolute bottom-6 left-6 text-left z-20">
+                <h3 className="text-white text-2xl font-semibold drop-shadow-md">
+                  {fabric.name}
+                </h3>
+                <button
+                  onClick={() =>
+                    navigate(`/library/${fabric._id}`, {
+                      state: { categoryName: fabric._id, name: fabric.name },
+                    })
+                  }
+                  className="mt-4 px-5 py-2 text-sm font-semibold bg-white text-indigo-900 rounded-full hover:bg-indigo-900 hover:text-white transition duration-300"
+                >
+                  View More
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-96">
+          <img
+            src={NoData}
+            alt="No Data"
+            className="w-48 h-48 object-cover mb-4"
+          />
+          <h3 className="text-xl font-semibold text-gray-700">
+            No Fabrics Available
+          </h3>
+          <p className="text-gray-500">
+            Please check back later or contact support.
+          </p>
+        </div>
+      )}
     </section>
   );
 };

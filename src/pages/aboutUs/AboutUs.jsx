@@ -10,6 +10,7 @@ import { FaEye } from "react-icons/fa";
 import { TbTargetArrow } from "react-icons/tb";
 import { SiTicktick } from "react-icons/si";
 import { FiTrendingUp } from "react-icons/fi";
+import FabricSpecifications from "../../components/fabricSpecifications/FabricSpecifications";
 
 const points = [
   {
@@ -109,6 +110,7 @@ const AboutUs = () => {
       </div>
 
       <ServiceCard />
+      <FabricSpecifications />
       <HoverImage />
     </div>
   );

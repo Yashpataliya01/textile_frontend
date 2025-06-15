@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// error handling for image loading
+import NoData from "../../../../../../assets/Images/other/NoData.jpg";
+
 const ProductsList = () => {
   const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const location = useLocation();
@@ -58,43 +61,56 @@ const ProductsList = () => {
           transition={{ duration: 0.5 }}
           className="text-2xl font-semibold text-gray-800 mb-10 text-center"
         >
-          Our Suiting Collection
+          Our {name} Collection
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {products?.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              onClick={() =>
-                navigate(`/library/${categoryName}/${item._id}`, {
-                  state: {
-                    categoryName: item?.name,
-                    productId: item?._id,
-                    categoryId: categoryName,
-                  },
-                })
-              }
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer group"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-60 object-cover transform group-hover:scale-105 transition duration-300"
-                />
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                  {item.name}
-                </h3>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {products.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            {products?.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                onClick={() =>
+                  navigate(`/library/${categoryName}/${item._id}`, {
+                    state: {
+                      categoryName: item?.name,
+                      productId: item?._id,
+                      categoryId: categoryName,
+                    },
+                  })
+                }
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 cursor-pointer group"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-60 object-cover transform group-hover:scale-105 transition duration-300"
+                  />
+                </div>
+                <div className="p-5 text-center">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-1">
+                    {item.name}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-96">
+            <img
+              src={NoData}
+              alt="No Data"
+              className="w-48 h-48 object-cover mb-4"
+            />
+            <p className="text-gray-600 text-lg">
+              No products available in this category.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

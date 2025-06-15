@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { X, ZoomIn, Heart, Share2 } from "lucide-react";
 
+// error handling for image loading
+import NoData from "../../../assets/Images/other/NoData.jpg";
+
 const PhotoGallery = () => {
+  const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const [selectedImage, setSelectedImage] = useState(null);
   const [likedImages, setLikedImages] = useState(new Set());
   const [viewAllOpen, setViewAllOpen] = useState(false);
@@ -10,9 +14,7 @@ const PhotoGallery = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(
-          `http://localhost:5000/api/galaries/getGalaries`
-        );
+        const res = await fetch(`${API_ORIGIN}/api/galaries/getGalaries`);
         const data = await res.json();
         setImages(data.data || []);
       } catch (err) {
@@ -86,145 +88,160 @@ const PhotoGallery = () => {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="block md:hidden space-y-6">
-            {images.slice(0, 8).map((img, idx) => (
-              <ImageCard
-                key={idx}
-                src={img?.image}
-                index={idx}
-                className="w-full h-64 rounded-2xl"
-                onClick={() => setSelectedImage({ src: img.image, index: idx })}
-              />
-            ))}
-          </div>
-
-          <div className="hidden md:block relative">
-            <div className="flex gap-6 mb-6 h-96">
-              {images[0] && (
+        {images.length > 0 ? (
+          <div className="max-w-7xl mx-auto">
+            <div className="block md:hidden space-y-6">
+              {images.slice(0, 8).map((img, idx) => (
                 <ImageCard
-                  src={images[0].image}
-                  index={0}
-                  className="w-1/4 h-full rounded-2xl"
+                  key={idx}
+                  src={img?.image}
+                  index={idx}
+                  className="w-full h-64 rounded-2xl"
                   onClick={() =>
-                    setSelectedImage({ src: images[0].image, index: 0 })
+                    setSelectedImage({ src: img.image, index: idx })
                   }
                 />
-              )}
-              <div className="w-2/5 flex flex-col gap-6">
-                {images[1] && (
+              ))}
+            </div>
+
+            <div className="hidden md:block relative">
+              <div className="flex gap-6 mb-6 h-96">
+                {images[0] && (
                   <ImageCard
-                    src={images[1].image}
-                    index={1}
-                    className="h-2/3 rounded-2xl"
+                    src={images[0].image}
+                    index={0}
+                    className="w-1/4 h-full rounded-2xl"
                     onClick={() =>
-                      setSelectedImage({ src: images[1].image, index: 1 })
+                      setSelectedImage({ src: images[0].image, index: 0 })
                     }
                   />
                 )}
-                {images[2] && (
+                <div className="w-2/5 flex flex-col gap-6">
+                  {images[1] && (
+                    <ImageCard
+                      src={images[1].image}
+                      index={1}
+                      className="h-2/3 rounded-2xl"
+                      onClick={() =>
+                        setSelectedImage({ src: images[1].image, index: 1 })
+                      }
+                    />
+                  )}
+                  {images[2] && (
+                    <ImageCard
+                      src={images[2].image}
+                      index={2}
+                      className="h-1/3 rounded-2xl"
+                      onClick={() =>
+                        setSelectedImage({ src: images[2].image, index: 2 })
+                      }
+                    />
+                  )}
+                </div>
+                {images[3] && (
                   <ImageCard
-                    src={images[2].image}
-                    index={2}
-                    className="h-1/3 rounded-2xl"
+                    src={images[3].image}
+                    index={3}
+                    className="w-1/3 h-full rounded-2xl"
                     onClick={() =>
-                      setSelectedImage({ src: images[2].image, index: 2 })
+                      setSelectedImage({ src: images[3].image, index: 3 })
                     }
                   />
                 )}
               </div>
-              {images[3] && (
-                <ImageCard
-                  src={images[3].image}
-                  index={3}
-                  className="w-1/3 h-full rounded-2xl"
-                  onClick={() =>
-                    setSelectedImage({ src: images[3].image, index: 3 })
-                  }
-                />
-              )}
-            </div>
 
-            <div className="flex gap-6 mb-6 h-72">
-              {images[4] && (
-                <ImageCard
-                  src={images[4].image}
-                  index={4}
-                  className="w-2/5 h-full rounded-2xl"
-                  onClick={() =>
-                    setSelectedImage({ src: images[4].image, index: 4 })
-                  }
-                />
-              )}
-              {images[5] && (
-                <div className="w-1/5 h-full">
+              <div className="flex gap-6 mb-6 h-72">
+                {images[4] && (
                   <ImageCard
-                    src={images[5].image}
-                    index={5}
-                    className="h-full rounded-2xl"
+                    src={images[4].image}
+                    index={4}
+                    className="w-2/5 h-full rounded-2xl"
                     onClick={() =>
-                      setSelectedImage({ src: images[5].image, index: 5 })
+                      setSelectedImage({ src: images[4].image, index: 4 })
                     }
                   />
-                </div>
-              )}
-              {images[6] && (
-                <ImageCard
-                  src={images[6].image}
-                  index={6}
-                  className="w-2/5 h-full rounded-2xl"
-                  onClick={() =>
-                    setSelectedImage({ src: images[6].image, index: 6 })
-                  }
-                />
-              )}
-            </div>
-
-            <div className="flex gap-6 mb-6 h-64">
-              {images[7] && (
-                <div className="w-1/3 flex flex-col gap-6">
+                )}
+                {images[5] && (
+                  <div className="w-1/5 h-full">
+                    <ImageCard
+                      src={images[5].image}
+                      index={5}
+                      className="h-full rounded-2xl"
+                      onClick={() =>
+                        setSelectedImage({ src: images[5].image, index: 5 })
+                      }
+                    />
+                  </div>
+                )}
+                {images[6] && (
                   <ImageCard
-                    src={images[7].image}
-                    index={7}
-                    className="h-full rounded-2xl"
+                    src={images[6].image}
+                    index={6}
+                    className="w-2/5 h-full rounded-2xl"
                     onClick={() =>
-                      setSelectedImage({ src: images[7].image, index: 7 })
+                      setSelectedImage({ src: images[6].image, index: 6 })
                     }
                   />
-                </div>
-              )}
-              {images[8] && (
-                <ImageCard
-                  src={images[8].image}
-                  index={8}
-                  className="w-1/4 h-full rounded-2xl"
-                  onClick={() =>
-                    setSelectedImage({ src: images[8].image, index: 8 })
-                  }
-                />
-              )}
-              {images[9] && (
-                <ImageCard
-                  src={images[9].image}
-                  index={9}
-                  className="w-5/12 h-full rounded-2xl"
-                  onClick={() =>
-                    setSelectedImage({ src: images[9].image, index: 9 })
-                  }
-                />
-              )}
+                )}
+              </div>
+
+              <div className="flex gap-6 mb-6 h-64">
+                {images[7] && (
+                  <div className="w-1/3 flex flex-col gap-6">
+                    <ImageCard
+                      src={images[7].image}
+                      index={7}
+                      className="h-full rounded-2xl"
+                      onClick={() =>
+                        setSelectedImage({ src: images[7].image, index: 7 })
+                      }
+                    />
+                  </div>
+                )}
+                {images[8] && (
+                  <ImageCard
+                    src={images[8].image}
+                    index={8}
+                    className="w-1/4 h-full rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[8].image, index: 8 })
+                    }
+                  />
+                )}
+                {images[9] && (
+                  <ImageCard
+                    src={images[9].image}
+                    index={9}
+                    className="w-5/12 h-full rounded-2xl"
+                    onClick={() =>
+                      setSelectedImage({ src: images[9].image, index: 9 })
+                    }
+                  />
+                )}
+              </div>
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <button
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                onClick={() => setViewAllOpen(true)}
+              >
+                View All
+              </button>
             </div>
           </div>
-
-          <div className="flex justify-center mt-8">
-            <button
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-              onClick={() => setViewAllOpen(true)}
-            >
-              View All
-            </button>
+        ) : (
+          <div className="flex flex-col items-center justify-center min-h-[50vh]">
+            <img
+              src={NoData}
+              alt="No Data Found"
+              className="w-64 h-64 object-contain mb-6"
+            />
+            <p className="text-gray-600 text-xl font-medium">
+              No images found in the gallery.
+            </p>
           </div>
-        </div>
+        )}
       </section>
 
       {selectedImage && (

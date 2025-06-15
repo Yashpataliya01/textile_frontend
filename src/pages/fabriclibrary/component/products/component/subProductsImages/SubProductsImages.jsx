@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+// error handling for image loading
+import NoData from "../../../../../../assets/Images/other/NoData.jpg";
+
 const SubProductImages = () => {
   const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const location = useLocation();
