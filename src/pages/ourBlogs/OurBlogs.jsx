@@ -2,28 +2,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const OurBlog = () => {
-  const API_ORIGIN = "http://localhost:5000"; // Change when deployed
+  const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const [blogs, setBlogs] = useState([]);
   const [selectedBlog, setSelectedBlog] = useState(null);
-
-  const dummyBlogs = [
-    {
-      _id: "dummy1",
-      title: "The Legacy of Shiv Shakti Synthetics: From 2011 to Today",
-      image: "/images/factory-legacy.jpg",
-      description:
-        "Founded in 2011, Shiv Shakti Synthetics under the esteemed label Ankit Suitings has become a trusted name in the textile industry. With a focus on delivering premium-quality uniform fabrics, our journey started with a vision to combine refined design, unmatched texture, and long-lasting durability.",
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: "dummy2",
-      title: "Why Uniform Fabric Quality Matters — And How We Lead the Way",
-      image: "/images/uniform-quality.jpg",
-      description:
-        "At Shiv Shakti Synthetics, we believe that the fabric you wear defines the brand you represent. That’s why our team at Ankit Suitings crafts fabrics that go beyond just looks. Our materials are carefully engineered to be resilient, breathable, and colorfast, making them ideal for long hours of daily use.",
-      createdAt: new Date().toISOString(),
-    },
-  ];
 
   useEffect(() => {
     fetch(`${API_ORIGIN}/api/blogs/getBlogs`)
