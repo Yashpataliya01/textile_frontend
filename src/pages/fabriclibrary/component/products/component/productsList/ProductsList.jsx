@@ -79,6 +79,7 @@ const ProductsList = () => {
                       categoryName: item?.name,
                       productId: item?._id,
                       categoryId: categoryName,
+                      description: item?.description,
                     },
                   })
                 }

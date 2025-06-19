@@ -6,7 +6,7 @@ import {
   Instagram,
   Facebook,
   Linkedin,
-  Twitter,
+  X,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -136,22 +136,40 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center justify-center flex-wrap gap-4 text-sm text-gray-600">
-              <span className="font-mediu text-white">Follow us on:</span>
+              <span className="font-medium text-white">Follow us on:</span>
               {[
-                { Icon: Instagram, label: "Instagram" },
-                { Icon: Facebook, label: "Facebook" },
-                { Icon: Twitter, label: "Twitter" },
-                { Icon: Linkedin, label: "LinkedIn" },
-              ].map(({ Icon, label }, index) => (
-                <a
+                {
+                  Icon: Instagram,
+                  label: "Instagram",
+                  url: "https://www.instagram.com/ankitsuitings/profilecard/?igsh=MTlwYWpvb2QwaWN0Mw==",
+                },
+                {
+                  Icon: Facebook,
+                  label: "Facebook",
+                  url: "https://www.facebook.com/share/1WQt3TgVde/",
+                },
+                {
+                  Icon: X,
+                  label: "Twitter",
+                  url: "https://x.com/AnkitSuitings",
+                },
+                {
+                  Icon: Linkedin,
+                  label: "LinkedIn",
+                  url: "www.linkedin.com/in/ankit-suitings-and-shirtings-4994b1304",
+                },
+              ].map(({ Icon, label, url }, index) => (
+                <Link
                   key={index}
-                  href="#"
+                  to={url}
                   aria-label={label}
                   title={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gray-800 text-white p-2 rounded-full hover:bg-orange-600 hover:scale-105 transform transition-all duration-300"
                 >
                   <Icon className="w-5 h-5" />
-                </a>
+                </Link>
               ))}
             </div>
 

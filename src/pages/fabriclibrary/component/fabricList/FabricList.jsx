@@ -5,21 +5,6 @@ import { motion } from "framer-motion";
 // error handling for image loading
 import NoData from "../../../../assets/Images/other/NoData.jpg";
 
-const fabrics = [
-  {
-    name: "Suitings",
-    image:
-      "https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    _id: "00001",
-  },
-  {
-    name: "Shirtings",
-    image:
-      "https://images.unsplash.com/photo-1647013629840-13c441a3221b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    _id: "00002",
-  },
-];
-
 const FabricList = () => {
   const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const [categories, setCategories] = useState([]);

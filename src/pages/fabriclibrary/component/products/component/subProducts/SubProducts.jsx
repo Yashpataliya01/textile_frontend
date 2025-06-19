@@ -9,7 +9,8 @@ const SubProducts = () => {
   const API_ORIGIN = import.meta.env.VITE_ENCODED_URL;
   const { _id } = useParams();
   const location = useLocation();
-  const { categoryName, productId, categoryId } = location.state || {};
+  const { categoryName, productId, categoryId, description } =
+    location.state || {};
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -44,8 +45,7 @@ const SubProducts = () => {
         </h1>
         <div className="w-20 h-1 bg-[#0f1130] mx-auto mt-4 rounded-full animate-pulse"></div>
         <p className="max-w-2xl mx-auto mt-6 text-gray-600 leading-relaxed">
-          Discover high-quality shirting fabrics with timeless check patterns.
-          Comfort and elegance blended for both casual and formal wear.
+          {description}
         </p>
       </motion.div>
 
