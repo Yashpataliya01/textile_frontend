@@ -89,7 +89,7 @@ const SubProductImages = () => {
       </div>
 
       {/* Image Cards Grid */}
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-screen-xxl h-96">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-screen-xxl">
         {filteredProducts.map((item, index) => (
           <motion.div
             key={index}
@@ -99,13 +99,14 @@ const SubProductImages = () => {
             transition={{ duration: 0.4, delay: index * 0.05 }}
             className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition duration-300"
           >
-            <div className="h-92 sm:h-72 overflow-hidden">
+            <div className="h-64 sm:h-72 overflow-hidden">
               <img
                 src={item.image}
                 alt={item.heading}
                 className="object-cover w-full h-full"
               />
             </div>
+
             <div className="p-4 text-center">
               <h2 className="text-lg font-semibold text-gray-800 truncate">
                 {item.heading}

@@ -122,11 +122,33 @@ const Footer = () => {
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-orange-700 flex-shrink-0 mt-1" />
-                <p className="text-gray-300 ml-3">
-                  4-D-7, Opp. S.Tech College,
-                  <br />
-                  Near Dev Narayan Circle, Patel Nagar, Bhilwara - 311001 (Raj.)
-                </p>
+                <div className="ml-3 text-gray-300 w-full">
+                  <p>
+                    4‑D‑7, Opp. S.Tech College, <br />
+                    Near Dev Narayan Circle, Patel Nagar, Bhilwara – 311001
+                    (Raj.)
+                  </p>
+                  <div className="mt-3 rounded-lg overflow-hidden border border-gray-700">
+                    <iframe
+                      title="Shiv Shakti Synthetics Area Map"
+                      src="https://maps.google.com/maps?q=Shiv+Shakti+Synthetics,+Patel+Nagar,+Bhilwara,+Rajasthan&z=17&hl=en&output=embed"
+                      width="100%"
+                      height="100"
+                      loading="lazy"
+                      className="w-full rounded-md border border-gray-700"
+                    />
+                  </div>
+                  <div className="mt-2 text-sm">
+                    <a
+                      href="https://www.google.com/maps/place/Shiv+Shakti+Synthetics/@25.3261515,74.5987793,17z"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-500 hover:underline"
+                    >
+                      View on Google Maps
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -156,7 +178,7 @@ const Footer = () => {
                 {
                   Icon: Linkedin,
                   label: "LinkedIn",
-                  url: "www.linkedin.com/in/ankit-suitings-and-shirtings-4994b1304",
+                  url: "https://www.linkedin.com/in/ankit-suitings-and-shirtings-4994b1304",
                 },
               ].map(({ Icon, label, url }, index) => (
                 <Link
